@@ -1,27 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Public Transportation Website</title>
     <!-- Leaflet CSS for map styling -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- GSAP Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      defer
+    ></script>
     <!-- Three.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r146/three.min.js" defer></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r146/three.min.js"
+      defer
+    ></script>
     <!-- Leaflet.js for maps -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <!-- QR Code Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <!-- Custom JS -->
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-gray-100 text-gray-800">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-100 ">
     <!-- Header -->
+    <header class="bg-blue-700 text-white py-4">
+      <div class="flex items-center justify-between px-6">
+        <!-- Logo -->
+        <h1 class="text-2xl font-bold">TransitEase</h1>
+        <!-- Navigation -->
+        <nav>
+          <ul class="flex space-x-8">
+            <li><a href="#home" class="hover:underline">Home</a></li>
+            <li><a href="#routes" class="hover:underline">Routes</a></li>
+            <li><a href="#tickets" class="hover:underline">Tickets</a></li>
+            <li><a href="#contact" class="hover:underline">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     <header class="text-white py-4 fixed w-full z-50">
         <div class="flex items-center justify-between px-6">
             <!-- Logo -->
@@ -43,6 +73,14 @@
     </header>
 
     <!-- Main Content -->
+    <main class="p-6">
+      <!-- Welcome Section -->
+      <section id="home" class="mb-8 bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-3xl text-blue-700 text-center font-bold">
+          Welcome to TransitEase
+        </h1>
+        <p class="text-center mt-4">Your Smart Commute Solution</p>
+      </section>
     <main>
         <!-- Welcome Section -->
         <section id="home" class="h-screen flex justify-center items-center relative">
@@ -58,89 +96,360 @@
 
         
 
-        <!-- Book Tickets Section -->
-<section id="tickets" class="mb-8 bg-white p-6 rounded-lg shadow-md">
-    <h2 class="text-2xl text-blue-700 text-center font-semibold">Book Your Tickets</h2>
-    <!-- Ticket Form -->
-    <div class="mt-4">
-        <form id="ticket-form" class="grid grid-cols-2 gap-4">
+      <!-- Book Tickets Section -->
+      <section id="tickets" class="mb-8 bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl text-blue-700 text-center font-semibold">
+          Book Your Tickets
+        </h2>
+        <!-- Ticket Form -->
+        <div class="mt-4">
+          <form id="ticket-form" class="grid grid-cols-2 gap-4">
             <!-- FROM -->
             <div>
-                <label for="from" class="block text-blue-700 font-semibold">FROM</label>
-                <input type="text" id="from" placeholder="City or Town" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+              <label for="from" class="block text-blue-700 font-semibold"
+                >FROM</label
+              >
+              <input
+                type="text"
+                id="from"
+                placeholder="City or Town"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                required
+              />
             </div>
             <!-- TO -->
             <div>
-                <label for="to" class="block text-blue-700 font-semibold">TO</label>
-                <input type="text" id="to" placeholder="City or Town" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+              <label for="to" class="block text-blue-700 font-semibold"
+                >TO</label
+              >
+              <input
+                type="text"
+                id="to"
+                placeholder="City or Town"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                required
+              />
             </div>
             <!-- DEPARTING DATE -->
             <div>
-                <label for="departing-date" class="block text-blue-700 font-semibold">DEPARTING DATE</label>
-                <input type="date" id="departing-date" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+              <label
+                for="departing-date"
+                class="block text-blue-700 font-semibold"
+                >DEPARTING DATE</label
+              >
+              <input
+                type="date"
+                id="departing-date"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                required
+              />
             </div>
             <!-- TIME -->
             <div>
-                <label for="time" class="block text-blue-700 font-semibold">TIME</label>
-                <input type="time" id="time" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+              <label for="time" class="block text-blue-700 font-semibold"
+                >TIME</label
+              >
+              <input
+                type="time"
+                id="time"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                required
+              />
             </div>
             <!-- SEATS -->
             <div>
-                <label for="seats" class="block text-blue-700 font-semibold">SEATS</label>
-                <input type="number" id="seats" min="1" value="1" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+              <label for="seats" class="block text-blue-700 font-semibold"
+                >SEATS</label
+              >
+              <input
+                type="number"
+                id="seats"
+                min="1"
+                value="1"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                required
+              />
             </div>
             <!-- PASSENGER NAME -->
             <div class="col-span-2">
-                <label for="passenger-name" class="block text-blue-700 font-semibold">PASSENGER'S NAME</label>
-                <input type="text" id="passenger-name" placeholder="Enter Passenger's Name" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+              <label
+                for="passenger-name"
+                class="block text-blue-700 font-semibold"
+                >PASSENGER'S NAME</label
+              >
+              <input
+                type="text"
+                id="passenger-name"
+                placeholder="Enter Passenger's Name"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                required
+              />
             </div>
-        </form>
-        <!-- Generate Ticket Button -->
-        <div class="col-span-2 mt-4">
-            <button type="button" id="generate-ticket" class="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700">GENERATE TICKET</button>
-        </div>
-        <!-- QR Code Display -->
-        <div id="qrcode-container" class="col-span-2 mt-6 text-center hidden">
-            <h3 class="text-blue-700 font-semibold mb-2">Your Ticket QR Code:</h3>
+          </form>
+          <!-- Generate Ticket Button -->
+          <div class="col-span-2 mt-4">
+            <button
+              type="button"
+              id="generate-ticket"
+              class="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700"
+            >
+              GENERATE TICKET
+            </button>
+          </div>
+          <!-- QR Code Display -->
+          <div id="qrcode-container" class="col-span-2 mt-6 text-center hidden">
+            <h3 class="text-blue-700 font-semibold mb-2">
+              Your Ticket QR Code:
+            </h3>
             <div id="qrcode" class="inline-block"></div>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
 
+      <!-- Find Routes Section -->
+      <section id="routes" class="mb-8 bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl text-blue-700 text-center font-semibold">
+          Find Your Route
+        </h2>
+        <form id="route-form" class="mt-4 space-y-4">
+          <input
+            type="text"
+            id="start"
+            placeholder="Start Location"
+            value="mid valley international college"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+            required
+          />
+          <input
+            type="text"
+            id="end"
+            placeholder="End Location"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+            required
+          />
+          <button
+            type="button"
+            id="find-route"
+            class="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700"
+          >
+            Find Route
+          </button>
+        </form>
+        <div
+          id="route-results"
+          class="mt-4 bg-gray-100 p-4 rounded-lg shadow-inner"
+        >
+          Route results will be displayed here.
+        </div>
+        <div id="map" class="mt-4"></div>
+      </section>
 
-<!-- Find Routes Section -->
-<section id="routes" class="mb-8 bg-white p-6 rounded-lg shadow-md">
-    <h2 class="text-2xl text-blue-700 text-center font-semibold">Find Your Route</h2>
-    <form id="route-form" class="mt-4 space-y-4">
-        <input type="text" id="start" placeholder="Start Location" value="mid valley international college" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required>
-        <input type="text" id="end" placeholder="End Location" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required>
-        <button type="button" id="find-route" class="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700">Find Route</button>
-    </form>
-    <div id="route-results" class="mt-4 bg-gray-100 p-4 rounded-lg shadow-inner">
-        Route results will be displayed here.
-    </div>
-    <div id="map" class="mt-4"></div>
-</section>
-
-
-          <!-- Contact Section -->
-        <section id="contact" class="mb-8 bg-white p-6 rounded-lg shadow-md">
-            <h2 class="text-2xl text-blue-700 text-center font-semibold">Contact Us</h2>
-            <form class="mt-4 space-y-4">
-                <input type="text" placeholder="Your Name" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required>
-                <input type="email" placeholder="Your Email" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required>
-                <textarea placeholder="Your Message" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required></textarea>
-                <button type="submit" class="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700">Send</button>
-            </form>
-        </section>
+      <!-- Contact Section -->
+      <section id="contact" class="mb-8 bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl text-blue-700 text-center font-semibold">
+          Contact Us
+        </h2>
+        <form class="mt-4 space-y-4">
+          <input
+            type="text"
+            placeholder="Your Name"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+            required
+          />
+          <textarea
+            placeholder="Your Message"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+            required
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700"
+          >
+            Send
+          </button>
+        </form>
+      </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-blue-800 text-white text-center py-4">
-        <p>&copy; 2024 TransitEase. All rights reserved.</p>
-    </footer>
 
-   
-    
-</body>
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-16">
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Company Section -->
+          <div>
+            <h4 class="text-lg font-medium mb-6 relative">
+              Company
+              <span
+                class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+              ></span>
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center space-x-2 hover:text-light-blue transition"
+                >
+                  <i class="fas fa-info-circle"></i>
+                  <span>About us</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center space-x-2 hover:text-light-blue transition"
+                >
+                  <i class="fas fa-blog"></i>
+                  <span>Blogs</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center space-x-2 hover:text-light-blue transition"
+                >
+                  <i class="fas fa-envelope"></i>
+                  <span>Contact us</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Our Services Section -->
+          <div>
+            <h4 class="text-lg font-medium mb-6 relative">
+              Our Services
+              <span
+                class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+              ></span>
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center space-x-2 hover:text-light-blue transition"
+                >
+                  <i class="fas fa-city"></i>
+                  <span>City to city</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center space-x-2 hover:text-light-blue transition"
+                >
+                  <i class="fas fa-bus"></i>
+                  <span>City rides</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center space-x-2 hover:text-light-blue transition"
+                >
+                  <i class="fas fa-sync"></i>
+                  <span>Returns</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center space-x-2 hover:text-light-blue transition"
+                >
+                  <i class="fas fa-wallet"></i>
+                  <span>Payment options</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Bookings Section -->
+          <div>
+            <h4 class="text-lg font-medium mb-6 relative">
+              Bookings
+              <span
+                class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+              ></span>
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center space-x-2 hover:text-light-blue transition"
+                >
+                  <i class="fas fa-route"></i>
+                  <span>Watch routes</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center space-x-2 hover:text-light-blue transition"
+                >
+                  <i class="fas fa-car"></i>
+                  <span>Vehicles</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center space-x-2 hover:text-light-blue transition"
+                >
+                  <i class="fas fa-truck"></i>
+                  <span>Carries</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Follow Us Section -->
+          <div>
+            <h4 class="text-lg font-medium mb-6 relative">
+              Follow Us
+              <span
+                class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+              ></span>
+            </h4>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="text-center text-gray-300 mt-4">
+        &copy; 2024 TransitEase. All rights reserved.
+      </p>
+      <!-- <p>&copy; 2024 TransitEase. All rights reserved.</p> -->
+    </footer>
+  </body>
 </html>
