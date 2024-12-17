@@ -6,7 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Section</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
 </head>
+<header id="header" class="text-white py-4 bg-blue-900 fixed top-0 w-full z-50 transition-all duration-300">
+    <div class="flex items-center justify-between px-6">
+      <!-- Logo -->
+      <a href="index.html"><h1 class="text-2xl font-bold">TransitEase</h1></a>
+  
+      <!-- Hamburger Icon (Visible on smaller screens) -->
+      <button id="menu-toggle" class="block sm:hidden text-white text-2xl focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Navigation -->
+      <nav
+        id="navbar"
+        class="hidden sm:flex sm:space-x-8 flex-col sm:flex-row sm:items-center absolute sm:static top-16 sm:top-auto left-0 w-full sm:w-auto bg-blue-900/70 sm:bg-transparent px-6 sm:px-0"
+      >
+        <ul class="sm:flex sm:space-x-8">
+          <li><a href="index.html" class="block py-2 sm:py-0 hover:underline">Home</a></li>
+          <li><a href="route.html" class="block py-2 sm:py-0 hover:underline">Routes</a></li>
+          <li><a href="packages.html" class="block py-2 sm:py-0 hover:underline">Tickets</a></li>
+          <li><a href="index.html#contact" class="block py-2 sm:py-0 hover:underline">Contact</a></li>
+        </ul>
+      </nav>
+  
+      <!-- User Actions -->
+      <div class="flex space-x-4">
+        <a href="login.html">
+          <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">
+            <i class="fas fa-sign-in-alt mr-2"></i>Log In
+          </button>
+        </a>
+        <a href="signup.html">
+          <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">
+            <i class="fas fa-user-plus mr-2"></i>Sign Up
+          </button>
+        </a>
+      </div>
+    </div>
+  </header>
 
 <body class="bg-gray-50">
     <!-- Main Container -->
@@ -96,6 +138,177 @@
             </div>
         </div>
     </div>
+    <footer class="bg-blue-900 text-white py-16">
+        <div class="container mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Company Section -->
+            <div>
+              <h4 class="text-lg font-medium mb-6 relative">
+                Company
+                <span
+                  class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+                ></span>
+              </h4>
+              <ul class="space-y-3">
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-info-circle"></i>
+                    <span>About us</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="blog.html"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-blog"></i>
+                    <span>Blogs</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="index.html#contact"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact us</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+  
+            <!-- Our Services Section -->
+            <div>
+              <h4 class="text-lg font-medium mb-6 relative">
+                Our Services
+                <span
+                  class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+                ></span>
+              </h4>
+              <ul class="space-y-3">
+                <li>
+                  <a
+                    href="index.html#services"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-city"></i>
+                    <span>City to city</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="index.html#services"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-bus"></i>
+                    <span>City rides</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-sync"></i>
+                    <span>Returns</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-wallet"></i>
+                    <span>Payment options</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+  
+            <!-- Bookings Section -->
+            <div>
+              <h4 class="text-lg font-medium mb-6 relative">
+                Bookings
+                <span
+                  class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+                ></span>
+              </h4>
+              <ul class="space-y-3">
+                <li>
+                  <a
+                    href="route.html"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-route"></i>
+                    <span>Watch routes</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="E-bus.html"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-car"></i>
+                    <span>Vehicles</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-truck"></i>
+                    <span>Carries</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+  
+            <!-- Follow Us Section -->
+            <div>
+              <h4 class="text-lg font-medium mb-6 relative">
+                Follow Us
+                <span
+                  class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+                ></span>
+              </h4>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-gray-300 mt-4">
+          &copy; 2024 TransitEase. All rights reserved.
+        </p>
+        <!-- <p>&copy; 2024 TransitEase. All rights reserved.</p> -->
+      </footer>
 </body>
 
 </html>
