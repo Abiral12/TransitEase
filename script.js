@@ -210,4 +210,17 @@ document.addEventListener("DOMContentLoaded", () => {
       ease: "power1.out",
     });
   });
+
+
+
+// JavaScript to handle the scroll event
+window.addEventListener('scroll', function() {
+    const header = document.getElementById('header');
+    if (window.scrollY > 50) {  // Adjust this value to trigger the change earlier or later
+      header.classList.add('scrolled');  // Add the 'scrolled' class when scrolled down
+    } else {
+      header.classList.remove('scrolled');  // Remove the 'scrolled' class when back to top
+    }
+  });
+  
   

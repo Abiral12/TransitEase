@@ -8,4 +8,10 @@
 #welcome-img {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Adjust the values as needed */
   }
+
+
+#header.scrolled {
+    background-color: rgba(128, 128, 128, 0.7); /* Blurry gray background */
+    backdrop-filter: blur(8px); /* Apply blur effect */
+  }
   
