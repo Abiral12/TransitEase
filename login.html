@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form with Image</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+
+            background: #f0f2f5;
+        }
+
+        .container {
+            display: flex;
+            flex: 0 0 100%;
+            position: relative;
+        }
+
+        /* Image Section */
+        .image-section {
+            position: absolute;
+            height: 100vh;
+            width: 100%;
+            flex: 1;
+            background: url('logins.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.8;
+        }
+
+        /* Login Section */
+        .login-section {
+            position: relative;
+            top: 120px;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+
+        .form-card {
+            width: 350px;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .form-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .form-card p {
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .google-btn {
+            background: #fff;
+            border: 1px solid #d1d5db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .google-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .divider {
+            margin: 1rem 0;
+            color: #9ca3af;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #5f43dd;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            color: #5f43dd;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Left Image Section -->
+        <img class="image-section"  src="logins.jpg" alt="login">
+
+        <!-- Right Login Section -->
+        <div class="login-section">
+            <div class="form-card">
+
+                <h2>Welcome back</h2>
+                <p>Glad to see you again 👋</p>
+                <div class="google-btn">
+                    <img src="https://www.svgrepo.com/show/303108/google-icon-logo.svg" alt="Google Icon">
+                    Continue with Google
+                </div>
+                <div class="divider">OR</div>
+                <form>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <a href="index.html"><button type="button" >Login</button></a>
+                </form>
+                <p style="margin-top: 10px;">
+                    Don't have an account? <a href="signup.html">Sign up for Free</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

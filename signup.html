@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up & Login Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex justify-center items-center min-h-screen">
+    <div class="relative w-full h-screen flex">
+        <!-- Background Image Section -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-80" style="background-image: url('logins.jpg');"></div> 
+        
+        <!-- Form Card -->
+        <div class="relative z-10 bg-white rounded-lg shadow-lg p-8 w-full max-w-md mx-auto">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">Sign up</h2>
+            <p class="text-gray-600 mb-6">Enter your details below to create your account and get started.</p>
+
+            <form class="space-y-4">
+                <input 
+                    type="text" 
+                    placeholder="Full Name" 
+                    required 
+                    class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <input 
+                    type="email" 
+                    placeholder="Email" 
+                    required 
+                    class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <input 
+                    type="tel" 
+                    placeholder="Phone Number" 
+                    required 
+                    class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <select 
+                    class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <option value="nepal" selected>Nepal</option>
+                </select>
+                <input 
+                    type="password" 
+                    placeholder="Password" 
+                    required 
+                    class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <input 
+                    type="password" 
+                    placeholder="Confirm Password" 
+                    required 
+                    class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                
+                <div class="flex gap-4">
+                    <button 
+                        type="button" 
+                        class="w-full py-3 text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200">
+                        Cancel
+                    </button>
+                    <a href="login.html"><button 
+                        type="button" 
+                        class="w-full py-3 text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
+                        Confirm
+                    </button></a>
+                </div>
+
+                <p class="text-center text-sm text-gray-600 mt-4">
+                    Already have an account? <a href="login.html" class="text-indigo-600 hover:underline">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -3,3 +3,9 @@
     width: 100%;
     margin: 0 auto;
 }
+
+/* Add a box-shadow to img1.jpg */
+#welcome-img {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Adjust the values as needed */
+  }
+  

@@ -16,15 +16,13 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
       defer
     ></script>
-    <!-- Three.js Library -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r146/three.min.js"
-      defer
-    ></script>
+   
     <!-- Leaflet.js for maps -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <!-- QR Code Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -37,55 +35,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-100 ">
-    <!-- Header -->
-    <header class="bg-blue-700 text-white py-4">
-      <div class="flex items-center justify-between px-6">
+    
+  <header class="text-white py-4 fixed w-full z-50 ">
+    <div class="flex items-center justify-between px-6">
         <!-- Logo -->
         <h1 class="text-2xl font-bold">TransitEase</h1>
-        <!-- Navigation -->
-        <nav>
-          <ul class="flex space-x-8">
-            <li><a href="#home" class="hover:underline">Home</a></li>
-            <li><a href="#routes" class="hover:underline">Routes</a></li>
-            <li><a href="#tickets" class="hover:underline">Tickets</a></li>
-            <li><a href="#contact" class="hover:underline">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    <header class="text-white py-4 fixed w-full z-50">
-        <div class="flex items-center justify-between px-6">
-            <!-- Logo -->
-            <h1 class="text-2xl font-bold">TransitEase</h1> <!-- Sets dark blue text for logo -->
-            <!-- Navigation -->
-            <nav>
-                <ul class="flex space-x-8">
-                    <li><a href="#home" class="hover:underline">Home</a></li>
-                    <li><a href="#routes" class="hover:underline">Routes</a></li>
-                    <li><a href="#tickets" class="hover:underline">Tickets</a></li>
-                    <li><a href="#contact" class="hover:underline">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="flex space-x-8 list-none">
-                <li><a href="#login" class="hover:underline">Login</a></li>
-                <li><a href="#signup" class="hover:underline">Sign Up</a></li>
-            </div>
-        </div>
-    </header>
 
-    <!-- Main Content -->
-    <main class="p-6">
-      <!-- Welcome Section -->
-      <section id="home" class="mb-8 bg-white p-6 rounded-lg shadow-md">
-        <h1 class="text-3xl text-blue-700 text-center font-bold">
-          Welcome to TransitEase
-        </h1>
-        <p class="text-center mt-4">Your Smart Commute Solution</p>
-      </section>
-    <main>
+        <!-- Hamburger Icon (Visible on smaller screens) -->
+        <button id="menu-toggle" class="block sm:hidden text-white text-2xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav id="navbar" class="hidden sm:flex sm:space-x-8 flex-col sm:flex-row sm:items-center absolute sm:static top-16 sm:top-auto left-0 w-full sm:w-auto  sm:bg-transparent px-6 sm:px-0">
+            <ul class="sm:flex sm:space-x-8 ">
+                <li><a href="#home" class="block py-2 sm:py-0 hover:underline">Home</a></li>
+                <li><a href="#routes" class="block py-2 sm:py-0 hover:underline">Routes</a></li>
+                <li><a href="#tickets" class="block py-2 sm:py-0 hover:underline">Tickets</a></li>
+                <li><a href="#contact" class="block py-2 sm:py-0 hover:underline">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- User Actions -->
+        <div id="user-actions" class="hidden sm:flex space-x-8 list-none">
+          <li><a href="login.html" class="hover:underline">Login</a></li>
+          <li><a href="signup.html" class="hover:underline">Sign Up</a></li>
+      </div> 
+    </div>
+</header>
+
+   
         <!-- Welcome Section -->
         <section id="home" class="h-screen flex justify-center items-center relative">
             <!-- Image -->
-            <img src="img1.jpg" alt="image" class="absolute left-0 w-full h-full object-cover z-0">
+            <img src="img1.jpg" alt="image" id="welcome-img" class="absolute left-0 w-full h-full object-cover z-0">
+
             
             <!-- Text Content -->
             <div class="z-10 text-center">
@@ -94,6 +78,31 @@
             </div>
         </section>
 
+        <!-- Services Section -->
+        <section id="services" class="mb-8 bg-white p-6 rounded-lg shadow-md">
+          <h2 class="text-2xl text-blue-700 text-center font-semibold">Our Services</h2>
+          <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Service 1 -->
+              <div class="p-4 bg-gray-100 rounded-lg text-center">
+                  <i class="fas fa-bus text-blue-700 text-4xl mb-2"></i>
+                  <h3 class="text-lg font-semibold text-blue-700">City to City Rides</h3>
+                  <p class="text-gray-600">Comfortable and affordable rides between major cities.</p>
+              </div>
+              <!-- Service 2 -->
+              <div class="p-4 bg-gray-100 rounded-lg text-center">
+                  <i class="fas fa-leaf text-blue-700 text-4xl mb-2"></i>
+                  <h3 class="text-lg font-semibold text-blue-700">Eco-Friendly Travel</h3>
+                  <p class="text-gray-600">Join us in reducing carbon emissions with sustainable transport options.</p>
+              </div>
+              <!-- Service 3 -->
+              <div class="p-4 bg-gray-100 rounded-lg text-center">
+                  <i class="fas fa-clock text-blue-700 text-4xl mb-2"></i>
+                  <h3 class="text-lg font-semibold text-blue-700">Timely Departures</h3>
+                  <p class="text-gray-600">Experience punctual and reliable transportation services.</p>
+              </div>
+          </div>
+      </section>
+      
         
 
       <!-- Book Tickets Section -->

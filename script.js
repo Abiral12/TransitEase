@@ -1,3 +1,13 @@
+const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
+    const userActions = document.getElementById('user-actions');
+
+    menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('hidden');
+        userActions.classList.toggle('hidden');
+    });
+
+
 let map; // Global map instance
     
         document.getElementById('find-route').addEventListener('click', function() {
@@ -112,3 +122,76 @@ let map; // Global map instance
         height: 128
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
+  
+    // Header Animation
+    gsap.from("header", { duration: 1, y: -50, opacity: 0, ease: "power1.out" });
+  
+    // Section Slide-in Animation
+    gsap.from("section", {
+      scrollTrigger: {
+        trigger: "section",
+        start: "top 80%",
+      },
+      duration: 1,
+      y: 50,
+      opacity: 0,
+      stagger: 0.2,
+      ease: "power1.out",
+    });
+  
+    // Button Hover Animation
+    gsap.utils.toArray("button").forEach((button) => {
+      button.addEventListener("mouseenter", () => {
+        gsap.to(button, { scale: 1.1, duration: 0.2 });
+      });
+      button.addEventListener("mouseleave", () => {
+        gsap.to(button, { scale: 1, duration: 0.2 });
+      });
+    });
+  
+    // Welcome Text Animation
+    gsap.from("#banner-text", {
+      duration: 1.5,
+      y: 100,
+      opacity: 0,
+      ease: "bounce.out",
+      delay: 0.5,
+    });
+  
+    gsap.from("#banner-text + p", {
+      duration: 1.5,
+      y: 100,
+      opacity: 0,
+      ease: "power1.out",
+      delay: 1,
+    });
+  
+    // Map Zoom Animation
+    gsap.from("#map", {
+      scrollTrigger: {
+        trigger: "#map",
+        start: "top 80%",
+      },
+      scale: 0.8,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+    });
+  
+    // Footer Animation
+    gsap.from("footer", {
+      scrollTrigger: {
+        trigger: "footer",
+        start: "top 90%",
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power1.out",
+    });
+  });
+  
