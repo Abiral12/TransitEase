@@ -26,44 +26,56 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <!-- Header Section -->
     <header id="header" class="text-white py-4 bg-transparent fixed top-0 w-full z-50 transition-all duration-300">
       <div class="flex items-center justify-between px-6">
-        <!-- Logo -->
-        <h1 class="text-2xl font-bold">TransitEase</h1>
-    
-        <!-- Hamburger Icon (Visible on smaller screens) -->
-        <button id="menu-toggle" class="block sm:hidden text-white text-2xl focus:outline-none">
-          <i class="fas fa-bars"></i>
-        </button>
-    
-        <!-- Navigation -->
-        <nav
-          id="navbar"
-          class="hidden sm:flex sm:space-x-8 flex-col sm:flex-row sm:items-center absolute sm:static top-16 sm:top-auto left-0 w-full sm:w-auto bg-blue-900/70 sm:bg-transparent px-6 sm:px-0"
-        >
-          <ul class="sm:flex sm:space-x-8">
-            <li><a href="index.html" class="block py-2 sm:py-0 hover:underline">Home</a></li>
-            <li><a href="#routes" class="block py-2 sm:py-0 hover:underline">Routes</a></li>
-            <li><a href="#tickets" class="block py-2 sm:py-0 hover:underline">Tickets</a></li>
-            <li><a href="#footer" class="block py-2 sm:py-0 hover:underline">Contact</a></li>
-          </ul>
-        </nav>
-    
-        <!-- User Actions -->
-        <div class="flex space-x-4">
-          <a href="login.html">
-            <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">
-              <i class="fas fa-sign-in-alt mr-2"></i>Log In
-            </button>
-          </a>
-          <a href="signup.html">
-            <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">
-              <i class="fas fa-user-plus mr-2"></i>Sign Up
-            </button>
-          </a>
-        </div>
+          <!-- Logo -->
+          <h1 class="text-2xl font-bold">TransitEase</h1>
+
+          <!-- Hamburger Icon (Visible on smaller screens) -->
+          <button id="menu-toggle" class="block sm:hidden text-white text-2xl focus:outline-none">
+              <i class="fas fa-bars"></i>
+          </button>
+
+          <!-- Navigation -->
+          <nav id="navbar" class="hidden sm:flex flex-col sm:flex-row sm:items-center absolute sm:static top-16 sm:top-auto left-0 w-full sm:w-auto bg-blue-900/70 sm:bg-transparent px-6 sm:px-0">
+              <ul class="sm:flex sm:space-x-8 text-center">
+                  <li><a href="index.html" class="block py-2 sm:py-0 hover:underline">Home</a></li>
+                  <li><a href="#routes" class="block py-2 sm:py-0 hover:underline">Routes</a></li>
+                  <li><a href="#tickets" class="block py-2 sm:py-0 hover:underline">Tickets</a></li>
+                  <li><a href="#footer" class="block py-2 sm:py-0 hover:underline">Contact</a></li>
+              </ul>
+
+              <!-- Buttons in Menu -->
+              <div class="flex flex-col sm:hidden mt-4 space-y-4">
+                  <a href="login.html">
+                      <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 w-full">
+                          <i class="fas fa-sign-in-alt mr-2"></i>Log In
+                      </button>
+                  </a>
+                  <a href="signup.html">
+                      <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300 w-full">
+                          <i class="fas fa-user-plus mr-2"></i>Sign Up
+                      </button>
+                  </a>
+              </div>
+          </nav>
+
+          <!-- User Actions (Visible on larger screens) -->
+          <div class="hidden sm:flex space-x-4">
+              <a href="login.html">
+                  <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">
+                      <i class="fas fa-sign-in-alt mr-2"></i>Log In
+                  </button>
+              </a>
+              <a href="signup.html">
+                  <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">
+                      <i class="fas fa-user-plus mr-2"></i>Sign Up
+                  </button>
+              </a>
+          </div>
       </div>
-    </header>
+  </header>
     
   
 
@@ -72,7 +84,7 @@
     <!-- Home Section with Transparent Search Bar -->
 <section id="home" class="h-screen flex justify-center items-center relative">
   <!-- Background Image -->
-  <img src="/images/img1.jpg" alt="image" id="welcome-img" class="absolute left-0 w-full h-full object-cover z-0" />
+  <img src="./images/img1.jpg" alt="image" id="welcome-img" class="absolute left-0 w-full h-full object-cover z-0" />
 
   <!-- Text and Search Content -->
   <div class="z-10 text-center px-6 mb-10">
@@ -374,7 +386,7 @@
     <!-- Footer -->
 
     <!-- Footer -->
-    <footer class="bg-blue-900 text-white py-16">
+    <footer class="bg-blue-900 text-white py-16 pl-4">
       <div class="container mx-auto">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <!-- Company Section -->
