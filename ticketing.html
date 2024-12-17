@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Public Transportation Website</title>
+    <!-- Leaflet CSS for map styling -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+   
+    <!-- Leaflet.js for maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  <header id="header" class="text-white py-4  w-full z-50 bg-blue-500 mb-10">
+    <div class="flex items-center justify-between px-6">
+        <!-- Logo -->
+        <h1 class="text-2xl font-bold">TransitEase</h1>
+
+        <!-- Hamburger Icon (Visible on smaller screens) -->
+        <button id="menu-toggle" class="block sm:hidden text-white text-2xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav id="navbar" class="hidden sm:flex sm:space-x-8 flex-col sm:flex-row sm:items-center absolute sm:static top-16 sm:top-auto left-0 w-full sm:w-auto  sm:bg-transparent px-6 sm:px-0">
+            <ul class="sm:flex sm:space-x-8 ">
+                <li><a href="#home" class="block py-2 sm:py-0 hover:underline">Home</a></li>
+                <li><a href="#routes" class="block py-2 sm:py-0 hover:underline">Routes</a></li>
+                <li><a href="#tickets" class="block py-2 sm:py-0 hover:underline">Tickets</a></li>
+                <li><a href="#contact" class="block py-2 sm:py-0 hover:underline">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- User Actions -->
+        <div id="user-actions" class="hidden sm:flex space-x-8 list-none">
+          <li><a href="login.html" class="hover:underline">Login</a></li>
+          <li><a href="signup.html" class="hover:underline">Sign Up</a></li>
+      </div> 
+    </div>
+</header> 
+
+  <!-- Progress Bar -->
+  <div class="max-w-4xl mx-auto mb-6">
+    <div class="relative w-full bg-gray-200 rounded-full h-2.5">
+      <div id="progress-bar" class="absolute bg-blue-600 h-2.5 rounded-full" style="width: 50%;"></div>
+    </div>
+    <div class="flex justify-between text-gray-600 font-medium mt-2">
+      <span id="progress-step-1">1. Details</span>
+      <span id="progress-step-2">2. Finish</span>
+    </div>
+  </div>
+
+  <!-- Form Section -->
+  <div id="form-section" class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Customer Details</h2>
+    <form id="customer-form" class="space-y-4">
+      <!-- Name -->
+      <div>
+        <label class="block text-gray-700 font-medium mb-2" for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name" class="w-full px-4 py-2 border rounded-md" required />
+      </div>
+      <!-- Email -->
+      <div>
+        <label class="block text-gray-700 font-medium mb-2" for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" class="w-full px-4 py-2 border rounded-md" required />
+      </div>
+      <!-- Mobile -->
+      <div>
+        <label class="block text-gray-700 font-medium mb-2" for="mobile">Mobile</label>
+        <input type="tel" id="mobile" placeholder="Enter your mobile" class="w-full px-4 py-2 border rounded-md" required />
+      </div>
+      <!-- Address -->
+      <div>
+        <label class="block text-gray-700 font-medium mb-2" for="address">Address</label>
+        <input type="text" id="address" placeholder="Enter your address" class="w-full px-4 py-2 border rounded-md" required />
+      </div>
+      <!-- Submit Button -->
+      <div>
+        <button type="submit" id="submit-btn" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Finish Section -->
+  <div id="finish-section" class="max-w-4xl mx-auto bg-white p-6 mt-8 rounded-lg shadow-lg hidden">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Finish!</h2>
+    <p class="text-gray-600 mb-4">Your details have been submitted successfully. Here's your QR Code:</p>
+    <!-- QR Code -->
+    <div id="qrcode-container" class="flex justify-center">
+      <div id="qrcode" class="p-4 border border-gray-300 rounded-md shadow"></div>
+    </div>
+    <!-- Go Back Button -->
+    <div class="mt-6 text-center">
+      <button id="go-back" class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-700">
+        Go Back
+      </button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Handle Progress Bar and Sections
+    const progressBar = document.getElementById("progress-bar");
+    const formSection = document.getElementById("form-section");
+    const finishSection = document.getElementById("finish-section");
+    const goBackBtn = document.getElementById("go-back");
+
+    document.getElementById("customer-form").addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent form from reloading the page
+
+      // Get form data
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const mobile = document.getElementById("mobile").value;
+      const address = document.getElementById("address").value;
+
+      // Combine data into a string for QR code
+      const qrData = `Name: ${name}\nEmail: ${email}\nMobile: ${mobile}\nAddress: ${address}`;
+
+      // Generate QR Code
+      const qrCodeContainer = document.getElementById("qrcode");
+      qrCodeContainer.innerHTML = ""; // Clear previous QR Code if any
+      new QRCode(qrCodeContainer, {
+        text: qrData,
+        width: 128,
+        height: 128,
+      });
+
+      // Update Progress Bar to 100%
+      progressBar.style.width = "100%";
+
+      // Show Finish Section and Hide Form Section
+      formSection.classList.add("hidden");
+      finishSection.classList.remove("hidden");
+    });
+
+    // Go Back Button
+    goBackBtn.addEventListener("click", function () {
+      window.location.href = "packages.html";
+
+      // Show Form Section and Hide Finish Section
+    //   finishSection.classList.add("hidden");
+    //   formSection.classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>

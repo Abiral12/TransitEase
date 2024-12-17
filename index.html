@@ -22,7 +22,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css">
-    
+  </head>
+  <body>
   <header id="header" class="text-white py-4 fixed w-full z-50 ">
     <div class="flex items-center justify-between px-6">
         <!-- Logo -->
@@ -44,16 +45,16 @@
         </nav>
 
         <!-- User Actions -->
-        <div id="user-actions" class="hidden sm:flex space-x-8 list-none">
-          <li><a href="login.html" class="hover:underline">Login</a></li>
-          <li><a href="signup.html" class="hover:underline">Sign Up</a></li>
-      </div> 
+        <div class="flex space-x-4">
+          <a href="login.html"><button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"><i class="fas fa-sign-in-alt mr-2"></i>Log In</button></a>
+          <a href="signup.html"><button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300"><i class="fas fa-user-plus mr-2"></i>Sign Up</button></a>
+        </div>
     </div>
 </header> 
         <!-- Welcome Section -->
         <section id="home" class="h-screen flex justify-center items-center relative">
             <!-- Image -->
-            <img src="img1.jpg" alt="image" id="welcome-img" class="absolute left-0 w-full h-full object-cover z-0">
+            <img src="/images/img1.jpg" alt="image" id="welcome-img" class="absolute left-0 w-full h-full object-cover z-0">
 
             
             <!-- Text Content -->
@@ -64,162 +65,55 @@
         </section>
 
 
-       <!-- Services Section -->
-  <!-- Services Section -->
-  <section id="services" class="py-16 bg-gradient-to-r from-gray-800 via-gray-900 to-blue-900 text-white">
-    <div class="container mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-10">Our Services</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 align-center ms-20">
-        <!-- Service Card 1: City to City -->
-        <div class="p-6 ms-10 bg-white rounded-lg shadow-lg text-gray-800 transform hover:scale-105 transition-transform bg-cover bg-center" style="background-image: url('city-to-city1.jpg'); height: 500px; width: 500px;">
-          <div class="flex items-center justify-center mb-6">
-            <i class="fas fa-city text-6xl text-blue-600"></i>
-          </div>
-          <h3 class="text-2xl font-semibold text-center mb-9 text-white">City to City Rides</h3>
-          <p class="text-center text-gray-50">
-            Enjoy comfortable, safe, and affordable rides between major cities. Your convenience is our priority.
-          </p>
+<!-- Services Section -->
+<section id="services" class="py-16 bg-gradient-to-r from-gray-800 via-gray-900 to-blue-900 text-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-10 text-white">Our Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 align-center ms-20">
+
+      <!-- Service Card 1: Tour Package -->
+      <div class="p-6 bg-white rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+        <div class="h-32 bg-gradient-to-r from-blue-700 to-blue-500 rounded-t-lg flex items-center justify-center">
+          <i class="fas fa-bus text-6xl text-white"></i>
         </div>
-        <!-- Service Card 2: City Rides -->
-        <div class="p-6 ms-10  bg-white rounded-lg shadow-lg text-gray-800 transform hover:scale-105 transition-transform bg-cover bg-center" style="background-image: url('city.jpg'); height: 500px; width: 500px;">
-          <div class="flex items-center justify-center mb-6">
-            <i class="fas fa-bus text-6xl text-blue-600"></i>
+        <div class="p-4">
+          <h3 class="text-2xl font-semibold text-center text-gray-800 mb-4">Tour Package</h3>
+          <ul class="text-gray-700 space-y-2 text-center">
+            <li><i class="fas fa-map-marked-alt text-blue-600 mr-2"></i>Unique Packages</li>
+            <li><i class="fas fa-bus-alt text-blue-600 mr-2"></i>Comfortable Transport</li>
+            <li><i class="fas fa-globe text-blue-600 mr-2"></i>Popular Destinations</li>
+          </ul>
+          <div class="mt-4 flex justify-center">
+            <a href="packages.html" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded">Book Tour Package</a>
           </div>
-          <h3 class="text-2xl font-semibold text-center mb-9 text-white">City Rides</h3>
-          <p class="text-center text-gray-50">
-            Explore the city with ease. We offer reliable and efficient rides to get you to your destination on time.
-          </p>
         </div>
       </div>
+
+      <!-- Service Card 2: Reservation -->
+      <div class="p-6 bg-white rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+        <div class="h-32 bg-gradient-to-r from-blue-700 to-teal-500 rounded-t-lg flex items-center justify-center">
+          <i class="fas fa-clock text-6xl text-white"></i>
+        </div>
+        <div class="p-4">
+          <h3 class="text-2xl font-semibold text-center text-gray-800 mb-4">Reservation</h3>
+          <ul class="text-gray-700 space-y-2 text-center">
+            <li><i class="fas fa-route text-teal-500 mr-2"></i>City-To-City</li>
+            <li><i class="fas fa-clock text-teal-500 mr-2"></i>Hourly Rental</li>
+            <li><i class="fas fa-plane-arrival text-teal-500 mr-2"></i>Airport Pickup</li>
+          </ul>
+          <div class="mt-4 flex justify-center">
+            <a href="reservation.html" class="bg-teal-500 hover:bg-teal-600 text-white py-2 px-6 rounded">Reserve Now</a>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
-      
-      <div class="line bg-gray-500" style="height: 3px; width: 100%;"></div>
-        <!-- Services Section -->
-        <section id="services" class="mb-8 bg-white p-6 rounded-lg shadow-md">
-          <h2 class="text-2xl text-blue-700 text-center font-semibold">Our Services</h2>
-          <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-              <!-- Service 1 -->
-              <div class="p-4 bg-gray-100 rounded-lg text-center">
-                  <i class="fas fa-bus text-blue-700 text-4xl mb-2"></i>
-                  <h3 class="text-lg font-semibold text-blue-700">City to City Rides</h3>
-                  <p class="text-gray-600">Comfortable and affordable rides between major cities.</p>
-              </div>
-              <!-- Service 2 -->
-              <div class="p-4 bg-gray-100 rounded-lg text-center">
-                  <i class="fas fa-leaf text-blue-700 text-4xl mb-2"></i>
-                  <h3 class="text-lg font-semibold text-blue-700">Eco-Friendly Travel</h3>
-                  <p class="text-gray-600">Join us in reducing carbon emissions with sustainable transport options.</p>
-              </div>
-              <!-- Service 3 -->
-              <div class="p-4 bg-gray-100 rounded-lg text-center">
-                  <i class="fas fa-clock text-blue-700 text-4xl mb-2"></i>
-                  <h3 class="text-lg font-semibold text-blue-700">Timely Departures</h3>
-                  <p class="text-gray-600">Experience punctual and reliable transportation services.</p>
-              </div>
-          </div>
-      </section>
-    
-      
-        
 
-      <!-- Ticket Booking Section Wrapper -->
-<div class="flex items-center justify-center h-screen bg-gray-100 py-16 bg-gradient-to-r from-gray-800 via-gray-900 to-blue-900">
-  <!-- Book Tickets Section -->
-  <section id="tickets" class=" p-6 rounded-lg shadow-md " style="height: 500px; width: 500px;">
-    <h2 class="text-2xl text-white text-center font-semibold mb-10">
-      Book Your Tickets
-    </h2>
-    <!-- Ticket Form -->
-    <div class="mt-4">
-      <form id="ticket-form" class="grid grid-cols-2 gap-4 te">
-        <!-- FROM -->
-        <div>
-          <label for="from" class="block text-white font-semibold ">FROM</label>
-          <input
-            type="text"
-            id="from"
-            placeholder="City or Town"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg"
-            required
-          />
-        </div>
-        <!-- TO -->
-        <div>
-          <label for="to" class="block text-white font-semibold">TO</label>
-          <input
-            type="text"
-            id="to"
-            placeholder="City or Town"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg"
-            required
-          />
-        </div>
-        <!-- DEPARTING DATE -->
-        <div>
-          <label for="departing-date" class="block text-white font-semibold">DEPARTING DATE</label>
-          <input
-            type="date"
-            id="departing-date"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg"
-            required
-          />
-        </div>
-        <!-- TIME -->
-        <div>
-          <label for="time" class="block text-white font-semibold">TIME</label>
-          <input
-            type="time"
-            id="time"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg"
-            required
-          />
-        </div>
-        <!-- SEATS -->
-        <div>
-          <label for="seats" class="block text-white font-semibold">SEATS</label>
-          <input
-            type="number"
-            id="seats"
-            min="1"
-            value="1"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg"
-            required
-          />
-        </div>
-        <!-- PASSENGER NAME -->
-        <div class="col-span-2">
-          <label for="passenger-name" class="block text-white font-semibold">PASSENGER'S NAME</label>
-          <input
-            type="text"
-            id="passenger-name"
-            placeholder="Enter Passenger's Name"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg"
-            required
-          />
-        </div>
-      </form>
-      <!-- Generate Ticket Button -->
-      <div class="col-span-2 mt-10">
-        <button
-          type="button"
-          id="generate-ticket"
-          class="w-full px-4 py-2 bg-blue-900 text-white rounded-lg hover:bg-blue-700"
-        >
-          GENERATE TICKET
-        </button>
-      </div>
-      <!-- QR Code Display -->
-      <div id="qrcode-container" class="col-span-2 mt-6 text-center hidden">
-        <h3 class="text-blue-700 font-semibold mb-2">Your Ticket QR Code:</h3>
-        <div id="qrcode" class="inline-block"></div>
-      </div>
-    </div>
-  </section>
-</div>
+     
 
-<div class="line bg-gray-500" style="height: 3px; width: 100%;"></div>
 
       <!-- Find Routes Section -->
       <section id="routes" class="mb-8 bg-white p-6  shadow-md py-16 bg-gradient-to-r from-gray-800 via-gray-900 to-blue-900">

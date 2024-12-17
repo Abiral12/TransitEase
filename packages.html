@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Public Transportation Website</title>
+    <!-- Leaflet CSS for map styling -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+   
+    <!-- Leaflet.js for maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  <header id="header" class="text-white py-4  w-full z-50 bg-blue-500 mb-10">
+    <div class="flex items-center justify-between px-6">
+        <!-- Logo -->
+        <h1 class="text-2xl font-bold">TransitEase</h1>
+
+        <!-- Hamburger Icon (Visible on smaller screens) -->
+        <button id="menu-toggle" class="block sm:hidden text-white text-2xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav id="navbar" class="hidden sm:flex sm:space-x-8 flex-col sm:flex-row sm:items-center absolute sm:static top-16 sm:top-auto left-0 w-full sm:w-auto  sm:bg-transparent px-6 sm:px-0">
+            <ul class="sm:flex sm:space-x-8 ">
+                <li><a href="index.html" class="block py-2 sm:py-0 hover:underline">Home</a></li>
+                <li><a href="#routes" class="block py-2 sm:py-0 hover:underline">Routes</a></li>
+                <li><a href="#tickets" class="block py-2 sm:py-0 hover:underline">Tickets</a></li>
+                <li><a href="#contact" class="block py-2 sm:py-0 hover:underline">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- User Actions -->
+        <div id="user-actions" class="hidden sm:flex space-x-8 list-none">
+          <li><a href="login.html" class="hover:underline">Login</a></li>
+          <li><a href="signup.html" class="hover:underline">Sign Up</a></li>
+      </div> 
+    </div>
+</header> 
+  <div class="max-w-7xl mx-auto mb-10">
+    <h1 class="text-3xl font-bold text-gray-800 mb-10 text-center">Popular Tours</h1>
+    <!-- Card Container -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="relative">
+            <img src="/images/muktinath.jpg" alt="Muktinath Tour" class="w-full h-48 object-cover">
+          <span class="absolute top-2 left-2 bg-gray-800 text-white text-xs px-2 py-1 rounded">BUS SEWA</span>
+        </div>
+        <div class="p-4">
+          <h2 class="text-lg font-semibold text-blue-600 mb-2">Muktinath Tour</h2>
+          <p class="text-gray-600 text-sm mb-4">
+            Muktinath is a famous temple dedicated to Lord Vishnu and is holy to both Hindus and Buddhists...
+          </p>
+          <!-- Book Now Button -->
+          <a href="ticketing.html"><button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+            Book Now
+          </button></a>
+        </div>
+        <div class="flex items-center justify-between px-4 py-3 bg-gray-100 text-gray-700">
+          <div>
+            <span class="text-xs font-semibold">superb</span>
+            <span class="text-xs block">361 Reviews</span>
+          </div>
+          <!-- <span class="text-blue-600 font-semibold">0.00</span> -->
+          <span class="text-gray-800 font-bold">NPR 8500 <span class="text-gray-500 text-sm">/person</span></span>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="relative">
+          <img src="/images/pathibara.jpg" alt="Pathibhara Tour" class="w-full h-48 object-cover">
+          <span class="absolute top-2 left-2 bg-gray-800 text-white text-xs px-2 py-1 rounded">BUS SEWA</span>
+        </div>
+        <div class="p-4">
+          <h2 class="text-lg font-semibold text-blue-600 mb-2">Pathibhara Tour</h2>
+          <p class="text-gray-600 text-sm mb-4">
+            Pathibhara Devi Temple holds great importance for the Nepali people as one of their most dedicated places...
+          </p>
+          <!-- Book Now Button -->
+          <a href="ticketing.html"><button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+            Book Now
+          </button></a>
+        </div>
+        <div class="flex items-center justify-between px-4 py-3 bg-gray-100 text-gray-700">
+          <div>
+            <span class="text-xs font-semibold">superb</span>
+            <span class="text-xs block">229Reviews</span>
+          </div>
+          <!-- <span class="text-blue-600 font-semibold">0.00</span> -->
+          <span class="text-gray-800 font-bold">NPR 13000 <span class="text-gray-500 text-sm">/person</span></span>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="relative">
+          <img src="/images/kalinchowk.jpg" alt="Kalinchowk Tour" class="w-full h-48 object-cover">
+          <span class="absolute top-2 left-2 bg-gray-800 text-white text-xs px-2 py-1 rounded">BUS SEWA</span>
+        </div>
+        <div class="p-4">
+          <h2 class="text-lg font-semibold text-blue-600 mb-2">Kalinchowk Darshan</h2>
+          <p class="text-gray-600 text-sm mb-4">
+            Kalinchowk is known as the snowy paradise of Nepal and is located 3842m above sea level...
+          </p>
+          <!-- Book Now Button -->
+          <a href="ticketing.html"><button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+            Book Now
+          </button></a>
+        </div>
+        <div class="flex items-center justify-between px-4 py-3 bg-gray-100 text-gray-700">
+          <div>
+            <span class="text-xs font-semibold">superb</span>
+            <span class="text-xs block">128 Reviews</span>
+          </div>
+          <!-- <span class="text-blue-600 font-semibold">0.00</span> -->
+          <span class="text-gray-800 font-bold">NPR 2800 <span class="text-gray-500 text-sm">/person</span></span>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="relative">
+          <img src="/images/pokhara.jpg" alt="Pokhara Tour" class="w-full h-48 object-cover">
+          <span class="absolute top-2 left-2 bg-gray-800 text-white text-xs px-2 py-1 rounded">BUS SEWA</span>
+        </div>
+        <div class="p-4">
+          <h2 class="text-lg font-semibold text-blue-600 mb-2">Pokhara Tour</h2>
+          <p class="text-gray-600 text-sm mb-4">
+            Pokhara is a city in the west-central region of Nepal and is the country's second largest city...
+          </p>
+          <!-- Book Now Button -->
+          <a href="ticketing.html"><button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+            Book Now
+          </button></a>
+        </div>
+        <div class="flex items-center justify-between px-4 py-3 bg-gray-100 text-gray-700">
+          <div>
+            <span class="text-xs font-semibold">superb</span>
+            <span class="text-xs block">502Reviews</span>
+          </div>
+          <!-- <span class="text-blue-600 font-semibold">0.00</span> -->
+          <span class="text-gray-800 font-bold">NPR 5000 <span class="text-gray-500 text-sm">/person</span></span>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="relative">
+          <img src="/images/sailung.jpg" alt="Sailung Tour" class="w-full h-48 object-cover">
+          <span class="absolute top-2 left-2 bg-gray-800 text-white text-xs px-2 py-1 rounded">BUS SEWA</span>
+        </div>
+        <div class="p-4">
+          <h2 class="text-lg font-semibold text-blue-600 mb-2">Sailung Tour</h2>
+          <p class="text-gray-600 text-sm mb-4">
+            Sailung is a village in the east-central region of Nepal and is the country's second largest city...
+          </p>
+          <!-- Book Now Button -->
+        <a href="ticketing.html"><button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+            Book Now
+          </button></a>
+        </div>
+        <div class="flex items-center justify-between px-4 py-3 bg-gray-100 text-gray-700">
+          <div>
+            <span class="text-xs font-semibold">superb</span>
+            <span class="text-xs block">229Reviews</span>
+          </div>
+          <!-- <span class="text-blue-600 font-semibold">0.00</span> -->
+          <span class="text-gray-800 font-bold">NPR 13000 <span class="text-gray-500 text-sm">/person</span></span>
+        </div>
+      </div>
+      <!-- Card 6 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="relative">
+          <img src="/images/lumbini.jpg" alt="Lumbini Tour" class="w-full h-48 object-cover">
+          <span class="absolute top-2 left-2 bg-gray-800 text-white text-xs px-2 py-1 rounded">BUS SEWA</span>
+        </div>
+        <div class="p-4">
+          <h2 class="text-lg font-semibold text-blue-600 mb-2">Lumbini Tour</h2>
+          <p class="text-gray-600 text-sm mb-4">
+            Lumbini is a village in the west-central region of Nepal and is the country's second largest city...
+          </p>
+          <!-- Book Now Button -->
+          <a href="ticketing.html"><button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+            Book Now
+          </button></a>
+        </div>
+        <div class="flex items-center justify-between px-4 py-3 bg-gray-100 text-gray-700">
+          <div>
+            <span class="text-xs font-semibold">superb</span>
+            <span class="text-xs block">229Reviews</span>
+          </div>
+          <!-- <span class="text-blue-600 font-semibold">0.00</span> -->
+          <span class="text-gray-800 font-bold">NPR 13000 <span class="text-gray-500 text-sm">/person</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white py-16">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Company Section -->
+        <div>
+          <h4 class="text-lg font-medium mb-6 relative">
+            Company
+            <span
+              class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+            ></span>
+          </h4>
+          <ul class="space-y-3">
+            <li>
+              <a
+                href="#"
+                class="flex items-center space-x-2 hover:text-light-blue transition"
+              >
+                <i class="fas fa-info-circle"></i>
+                <span>About us</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center space-x-2 hover:text-light-blue transition"
+              >
+                <i class="fas fa-blog"></i>
+                <span>Blogs</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center space-x-2 hover:text-light-blue transition"
+              >
+                <i class="fas fa-envelope"></i>
+                <span>Contact us</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Our Services Section -->
+        <div>
+          <h4 class="text-lg font-medium mb-6 relative">
+            Our Services
+            <span
+              class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+            ></span>
+          </h4>
+          <ul class="space-y-3">
+            <li>
+              <a
+                href="#"
+                class="flex items-center space-x-2 hover:text-light-blue transition"
+              >
+                <i class="fas fa-city"></i>
+                <span>City to city</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center space-x-2 hover:text-light-blue transition"
+              >
+                <i class="fas fa-bus"></i>
+                <span>City rides</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center space-x-2 hover:text-light-blue transition"
+              >
+                <i class="fas fa-sync"></i>
+                <span>Returns</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center space-x-2 hover:text-light-blue transition"
+              >
+                <i class="fas fa-wallet"></i>
+                <span>Payment options</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Bookings Section -->
+        <div>
+          <h4 class="text-lg font-medium mb-6 relative">
+            Bookings
+            <span
+              class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+            ></span>
+          </h4>
+          <ul class="space-y-3">
+            <li>
+              <a
+                href="#"
+                class="flex items-center space-x-2 hover:text-light-blue transition"
+              >
+                <i class="fas fa-route"></i>
+                <span>Watch routes</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center space-x-2 hover:text-light-blue transition"
+              >
+                <i class="fas fa-car"></i>
+                <span>Vehicles</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="flex items-center space-x-2 hover:text-light-blue transition"
+              >
+                <i class="fas fa-truck"></i>
+                <span>Carries</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Follow Us Section -->
+        <div>
+          <h4 class="text-lg font-medium mb-6 relative">
+            Follow Us
+            <span
+              class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+            ></span>
+          </h4>
+          <div class="flex space-x-4">
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="text-center text-gray-300 mt-4">
+      &copy; 2024 TransitEase. All rights reserved.
+    </p>
+    <!-- <p>&copy; 2024 TransitEase. All rights reserved.</p> -->
+  </footer>
+</body>
+</html>

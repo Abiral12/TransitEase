@@ -125,42 +125,42 @@ function geocodeLocation(location) {
     });
 }
 
-// Call the function to initialize the map on page load
-document.addEventListener('DOMContentLoaded', initializeMap);
+// // Call the function to initialize the map on page load
+// document.addEventListener('DOMContentLoaded', initializeMap);
 
     
-    // Initialize the map on page load
-    document.addEventListener('DOMContentLoaded', initializeMap);
+//     // Initialize the map on page load
+//     document.addEventListener('DOMContentLoaded', initializeMap);
     
 
-        document.getElementById('generate-ticket').addEventListener('click', function() {
-    const from = document.getElementById('from').value;
-    const to = document.getElementById('to').value;
-    const departingDate = document.getElementById('departing-date').value;
-    const time = document.getElementById('time').value;
-    const seats = document.getElementById('seats').value;
-    const passengerName = document.getElementById('passenger-name').value;
+//     document.getElementById('generate-ticket').addEventListener('click', function() {
+//     const from = document.getElementById('from').value;
+//     const to = document.getElementById('to').value;
+//     const departingDate = document.getElementById('departing-date').value;
+//     const time = document.getElementById('time').value;
+//     const seats = document.getElementById('seats').value;
+//     const passengerName = document.getElementById('passenger-name').value;
 
-    if (!from || !to || !departingDate || !time || !seats || !passengerName) {
-        alert("Please fill in all the fields.");
-        return;
-    }
+//     if (!from || !to || !departingDate || !time || !seats || !passengerName) {
+//         alert("Please fill in all the fields.");
+//         return;
+//     }
 
-    // Generate Ticket Data
-    const ticketData = `Passenger: ${passengerName}\nFrom: ${from}\nTo: ${to}\nDate: ${departingDate}\nTime: ${time}\nSeats: ${seats}\nStatus: Confirmed(unpaid)`;
-    // alert("Ticket Generated:\n" + ticketData);
+//     // Generate Ticket Data
+//     const ticketData = `Passenger: ${passengerName}\nFrom: ${from}\nTo: ${to}\nDate: ${departingDate}\nTime: ${time}\nSeats: ${seats}\nStatus: Confirmed(unpaid)`;
+//     // alert("Ticket Generated:\n" + ticketData);
 
-    // Display QR Code
-    const qrcodeContainer = document.getElementById('qrcode-container');
-    qrcodeContainer.classList.remove('hidden');
-    document.getElementById('qrcode').innerHTML = ""; // Clear previous QR code
+//     // Display QR Code
+//     const qrcodeContainer = document.getElementById('qrcode-container');
+//     qrcodeContainer.classList.remove('hidden');
+//     document.getElementById('qrcode').innerHTML = ""; // Clear previous QR code
 
-    const qrcode = new QRCode(document.getElementById('qrcode'), {
-        text: ticketData,
-        width: 128,
-        height: 128
-    });
-});
+//     const qrcode = new QRCode(document.getElementById('qrcode'), {
+//         text: ticketData,
+//         width: 128,
+//         height: 128
+//     });
+// });
 
 
 document.addEventListener("DOMContentLoaded", () => {
