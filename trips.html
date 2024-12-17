@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<header id="header" class="text-white py-4 bg-blue-900 w-full z-50 ">
+    <div class="flex items-center justify-between px-6">
+        <!-- Logo -->
+        <h1 class="text-2xl font-bold">TransitEase</h1>
+
+        <!-- Hamburger Icon (Visible on smaller screens) -->
+        <button id="menu-toggle" class="block sm:hidden text-white text-2xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav id="navbar" class="hidden sm:flex sm:space-x-8 flex-col sm:flex-row sm:items-center absolute sm:static top-16 sm:top-auto left-0 w-full sm:w-auto  sm:bg-transparent px-6 sm:px-0">
+            <ul class="sm:flex sm:space-x-8 ">
+                <li><a href="index.html" class="block py-2 sm:py-0 hover:underline">Home</a></li>
+                <li><a href="index.html" class="block py-2 sm:py-0 hover:underline">Routes</a></li>
+                <li><a href="#tickets" class="block py-2 sm:py-0 hover:underline">Tickets</a></li>
+                <li><a href="#contact" class="block py-2 sm:py-0 hover:underline">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- User Actions -->
+        <div id="user-actions" class="hidden sm:flex space-x-8 list-none">
+          <li><a href="login.html" class="hover:underline">Login</a></li>
+          <li><a href="signup.html" class="hover:underline">Sign Up</a></li>
+      </div> 
+    </div>
+</header>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto p-4">
+        <!-- Search Form -->
+        <form class="flex flex-wrap gap-4 mb-6">
+            <select id="from" class="border border-gray-300 rounded px-3 py-2">
+                <option value="pokhara">Pokhara</option>
+                <option value="jhapa">Jhapa</option>
+                <option value="birtamod">Birtamod</option>
+                <option value="janakpur">Janakpur</option>
+                <option value="ilam">Ilam</option>
+                <option value="butwal">Butwal</option>
+                <option value="kathmandu">Kathmandu</option>
+            </select>
+            <button type="button" id="swap-cities" class="px-3 py-2 border rounded bg-gray-200 hover:bg-gray-300">
+                ↔
+            </button>
+            <select id="to" class="border border-gray-300 rounded px-3 py-2">
+                <option value="kathmandu">Kathmandu</option>
+                <option value="pokhara">Pokhara</option>
+                <option value="butwal">Butwal</option>
+                <option value="ilam">Ilam</option>
+                <option value="janakpur">Janakpur</option>
+                <option value="birtamod">Birtamod</option>
+                <option value="jhapa">Jhapa</option>
+            </select>
+            <input type="date" id="travel-date" class="border border-gray-300 rounded px-3 py-2" value="2081-09-03">
+            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                Search
+            </button>
+        </form>
+
+        <!-- Date Navigation -->
+        <div class="flex justify-between items-center mb-6">
+            <button id="prev-date" class="px-4 py-2 bg-white border border-gray-300 rounded hover:bg-gray-200">
+                ← Previous
+            </button>
+            <button id="next-date" class="px-4 py-2 bg-white border border-gray-300 rounded hover:bg-gray-200">
+                Next →
+            </button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex flex-col lg:flex-row gap-6">
+            <!-- Filters Section -->
+            <div class="lg:w-1/4 bg-gray-100 p-4 rounded shadow">
+                <div class="mb-6">
+                    <h3 class="font-bold text-lg mb-2">Departure Time</h3>
+                    <button class="w-full mb-2 px-4 py-2 text-left border rounded hover:bg-gray-200">Before 10 AM</button>
+                    <button class="w-full mb-2 px-4 py-2 text-left border bg-gray-100 rounded hover:bg-gray-200">10 AM - 5 PM</button>
+                    <button class="w-full px-4 py-2 text-left  border bg-gray-100 rounded hover:bg-gray-200">5 PM - 11 PM</button>
+                </div>
+                <div class="mb-6">
+                    <h3 class="font-bold text-lg mb-2">Bus Type</h3>
+                    <button class="w-full mb-2 px-4 py-2 text-left border bg-gray-100 rounded hover:bg-gray-200">AC</button>
+                    <button class="w-full mb-2 px-4 py-2 text-left border bg-gray-100 rounded hover:bg-gray-200">Sofa Seater</button>
+                    <button class="w-full mb-2 px-4 py-2 text-left border bg-gray-100 rounded hover:bg-gray-200">Deluxe</button>
+                    <button class="w-full px-4 py-2 text-left border bg-gray-100 rounded hover:bg-gray-200">Tourist</button>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-2">Amenities</h3>
+                    <input type="text" class="w-full border rounded px-3 py-2 mb-3" placeholder="Search Amenities">
+                    <label class="flex items-center mb-2">
+                        <input type="checkbox" class="mr-2"> Mobile Charger
+                    </label>
+                    <label class="flex items-center mb-2">
+                        <input type="checkbox" class="mr-2"> Sofa Seat
+                    </label>
+                    <label class="flex items-center mb-2">
+                        <input type="checkbox" class="mr-2"> Water
+                    </label>
+                    <label class="flex items-center mb-2">
+                        <input type="checkbox" class="mr-2"> Electric Push Back Seat
+                    </label>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="lg:w-3/4">
+                <!-- Tabs -->
+                <div class="flex mb-6">
+                    <div class="flex-1 text-center py-2 bg-gray-100 border hover:bg-gray-200 cursor-pointer">All</div>
+                    <div class="flex-1 text-center py-2 bg-gray-100 border rounded-t hover:bg-gray-200 cursor-pointer">Top Rated</div>
+                    <div class="flex-1 text-center py-2 bg-gray-100 border rounded-t hover:bg-gray-200 cursor-pointer">Affordable</div>
+                    <div class="flex-1 text-center py-2 bg-gray-100 border rounded-t hover:bg-gray-200 cursor-pointer">Flash Sales</div>
+                    <div class="flex-1 text-center py-2 bg-gray-100 border rounded-t hover:bg-gray-200 cursor-pointer">Cashback</div>
+                </div>
+
+                <!-- Bus Cards -->
+                <div class="bg-white p-4 rounded shadow mb-6 hover:shadow-lg">
+                    <div class="flex flex-col lg:flex-row justify-between">
+                        <div>
+                            <h3 class="font-bold text-lg">Desh Darshan (Heated Sofa Seats)</h3>
+                            <p class="text-gray-600">VIP Sofa</p>
+                            <div class="flex gap-2 mt-2">
+                                <i class="fa-solid fa-droplet text-gray-500"></i>
+                                <i class="fa-solid fa-bottle-water text-gray-500"></i>
+                                <i class="fa-solid fa-mobile-screen-button text-gray-500"></i>
+                            </div>
+                        </div>
+                        <div class="text-center my-4 lg:my-0">
+                            <p><strong>Departure: 09:30 AM</strong></p>
+                            <p><b>Pickup: Kathmandu</b></p>
+                            <p><b>Duration: 8 Hours</b></p>
+                            <p><strong>Arriving: 17:30 PM</strong></p>
+                            <p><b>Destination: Pokhara</b></p>
+                        </div>
+                        <div class="text-right">
+                            <p>Per Seat from</p>
+                            <h2 class="text-2xl font-bold">NPR 1800</h2>
+                            <p class="text-gray-600">9 Seats Available</p>
+                            <a href="ticketing.html"><button class="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Book Now</button></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more bus cards as needed -->
+                <div class="bg-white p-4 rounded shadow mb-6 hover:shadow-lg">
+                    <div class="flex flex-col lg:flex-row justify-between">
+                        <div>
+                            <h3 class="font-bold text-lg">Butwal Jagadamba (2/2 Sofa)</h3>
+                            <p class="text-gray-600">Tourist A/C</p>
+                            <div class="flex gap-2 mt-2">
+                                <i class="fa-solid fa-droplet text-gray-500"></i>
+                                <i class="fa-solid fa-bottle-water text-gray-500"></i>
+                                <i class="fa-solid fa-mobile-screen-button text-gray-500"></i>
+                            </div>
+                        </div>
+                        <div class="text-center my-4 lg:my-0">
+                            <p><strong>Departure: 12:30 AM</strong></p>
+                            <p><b>Pickup: Kathmandu</b></p>
+                            <p><b>Duration: 8 Hours</b></p>
+                            <p><strong>Arriving: 08:30 PM</strong></p>
+                            <p><b>Destination: Butwal</b></p>
+                        </div>
+                        <div class="text-right">
+                            <p>Per Seat from</p>
+                            <h2 class="text-2xl font-bold">NPR 1500</h2>
+                            <p class="text-gray-600">14 Seats Available</p>
+                            <a href="ticketing.html"><button class="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Book Now</button></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more bus cards as needed -->
+                <div class="bg-white p-4 rounded shadow mb-6 hover:shadow-lg">
+                    <div class="flex flex-col lg:flex-row justify-between">
+                        <div>
+                            <h3 class="font-bold text-lg">Tours and Travels (Sofa Seats)</h3>
+                            <p class="text-gray-600">Deluxe</p>
+                            <div class="flex gap-2 mt-2">
+                                <i class="fa-solid fa-droplet text-gray-500"></i>
+                                <i class="fa-solid fa-bottle-water text-gray-500"></i>
+                                <i class="fa-solid fa-mobile-screen-button text-gray-500"></i>
+                            </div>
+                        </div>
+                        <div class="text-center my-4 lg:my-0">
+                            <p><strong>Departure: 07:30 PM</strong></p>
+                            <p><b>Pickup: Kathmandu</b></p>
+                            <p><b>Duration: 8 Hours</b></p>
+                            <p><strong>Arriving: 17:30 PM</strong></p>
+                            <p><b>Destination: Birtamod</b></p>
+                        </div>
+                        <div class="text-right">
+                            <p>Per Seat from</p>
+                            <h2 class="text-2xl font-bold">NPR 1400</h2>
+                            <p class="text-gray-600">5 Seats Available</p>
+                            <a href="ticketing.html"><button class="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Book Now</button></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more bus cards as needed -->
+                <div class="bg-white p-4 rounded shadow mb-6 hover:shadow-lg">
+                    <div class="flex flex-col lg:flex-row justify-between">
+                        <div>
+                            <h3 class="font-bold text-lg">Darshan Bhakti (Special Package)</h3>
+                            <p class="text-gray-600">Comfortable Sitting</p>
+                            <div class="flex gap-2 mt-2">
+                                <i class="fa-solid fa-droplet text-gray-500"></i>
+                                <i class="fa-solid fa-bottle-water text-gray-500"></i>
+                                <i class="fa-solid fa-mobile-screen-button text-gray-500"></i>
+                            </div>
+                        </div>
+                        <div class="text-center my-4 lg:my-0">
+                            <p><strong>Departure: 05:30 AM</strong></p>
+                            <p><b>Pickup: Kathmandu</b></p>
+                            <p><b>Duration: 9 Hours</b></p>
+                            <p><strong>Arriving: 17:30 PM</strong></p>
+                            <p><b>Destination: Jhapa</b></p>
+                        </div>
+                        <div class="text-right">
+                            <p>Per Seat from</p>
+                            <h2 class="text-2xl font-bold">NPR 2000</h2>
+                            <p class="text-gray-600">17 Seats Available</p>
+                            <a href="ticketing.html"><button class="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Book Now</button></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more bus cards as needed -->
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-16">
+        <div class="container mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Company Section -->
+            <div>
+              <h4 class="text-lg font-medium mb-6 relative">
+                Company
+                <span
+                  class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+                ></span>
+              </h4>
+              <ul class="space-y-3">
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-info-circle"></i>
+                    <span>About us</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-blog"></i>
+                    <span>Blogs</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact us</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+  
+            <!-- Our Services Section -->
+            <div>
+              <h4 class="text-lg font-medium mb-6 relative">
+                Our Services
+                <span
+                  class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+                ></span>
+              </h4>
+              <ul class="space-y-3">
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-city"></i>
+                    <span>City to city</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-bus"></i>
+                    <span>City rides</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-sync"></i>
+                    <span>Returns</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-wallet"></i>
+                    <span>Payment options</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+  
+            <!-- Bookings Section -->
+            <div>
+              <h4 class="text-lg font-medium mb-6 relative">
+                Bookings
+                <span
+                  class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+                ></span>
+              </h4>
+              <ul class="space-y-3">
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-route"></i>
+                    <span>Watch routes</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-car"></i>
+                    <span>Vehicles</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-truck"></i>
+                    <span>Carries</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+  
+            <!-- Follow Us Section -->
+            <div>
+              <h4 class="text-lg font-medium mb-6 relative">
+                Follow Us
+                <span
+                  class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+                ></span>
+              </h4>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-gray-300 mt-4">
+          &copy; 2024 TransitEase. All rights reserved.
+        </p>
+        <!-- <p>&copy; 2024 TransitEase. All rights reserved.</p> -->
+      </footer>
+
+    <script>
+        // Swap 'From' and 'To' Select Options
+        document.getElementById('swap-cities').addEventListener('click', () => {
+            const from = document.getElementById('from');
+            const to = document.getElementById('to');
+            [from.value, to.value] = [to.value, from.value];
+        });
+    </script>
+</body>
+</html>

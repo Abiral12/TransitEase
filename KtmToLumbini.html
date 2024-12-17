@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+
+</head>
+<header id="header" class="text-white py-4 bg-blue-900 w-full z-50 ">
+    <div class="flex items-center justify-between px-6">
+        <!-- Logo -->
+        <h1 class="text-2xl font-bold">TransitEase</h1>
+
+        <!-- Hamburger Icon (Visible on smaller screens) -->
+        <button id="menu-toggle" class="block sm:hidden text-white text-2xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav id="navbar"
+            class="hidden sm:flex sm:space-x-8 flex-col sm:flex-row sm:items-center absolute sm:static top-16 sm:top-auto left-0 w-full sm:w-auto  sm:bg-transparent px-6 sm:px-0">
+            <ul class="sm:flex sm:space-x-8 ">
+                <li><a href="#home" class="block py-2 sm:py-0 hover:underline">Home</a></li>
+                <li><a href="#routes" class="block py-2 sm:py-0 hover:underline">Routes</a></li>
+                <li><a href="#tickets" class="block py-2 sm:py-0 hover:underline">Tickets</a></li>
+                <li><a href="#contact" class="block py-2 sm:py-0 hover:underline">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- User Actions -->
+        <div id="user-actions" class="hidden sm:flex space-x-8 list-none">
+            <li><a href="login.html" class="hover:underline">Login</a></li>
+            <li><a href="signup.html" class="hover:underline">Sign Up</a></li>
+        </div>
+    </div>
+</header>
+
+<body>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto">
+            <!-- Blog post header -->
+            <div class="py-8">
+                <h1 class="text-3xl font-bold mb-2"><i>Journey from Kathmandu to Lumbini
+
+                    </i></h1>
+                <p class="text-gray-500 text-sm">Published on <time datetime="2017-01-01">January 1, 2017</time></p>
+            </div>
+
+            <!-- Featured image -->
+            <img src="images/lumbini.jpg" Featured image class="w-full h-auto mb-8">
+
+            <!-- Blog post content -->
+            <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto">
+                <p>
+                    The journey from Kathmandu to Lumbini, the birthplace of Lord Buddha, is a remarkable experience
+                    that combines Nepal’s natural beauty, cultural richness, and spiritual significance. Covering
+                    approximately 260 kilometers, this trip takes you from the capital city to the serene plains of the
+                    Terai region,
+                    where Lumbini lies as a UNESCO World Heritage Site. Here’s a detailed look at this unforgettable
+                    journey.</p>
+                <h6 class="text-2xl mt-4 font-bold mb-2">Starting Point: Kathmandu</h6>
+
+                <p>The journey begins in Kathmandu, the vibrant capital of Nepal. Known for its rich history, UNESCO
+                    World Heritage
+                    sites, and bustling streets, Kathmandu serves as the ideal starting point. Whether you’re hopping
+                    onto a local
+                    bus,
+                    a private vehicle, or a tourist bus, the excitement of heading out of the valley is always palpable.
+
+                    The road trip starts early, as most buses leave from Kalanki, a major transportation hub. If you're
+                    driving yourself, make sure to prepare for winding roads and stunning views.</p>
+                <h4 class="text-2xl mt-4 font-bold mb-2">The Scenic Highway Journey</h4>
+                <p>The overland journey follows either the Prithvi Highway or BP Highway, depending on your chosen
+                    route. Both offer stunning views of Nepal’s hills and valleys,
+                    eventually descending into the flatlands of the Terai region. The drive takes about 7 to 9 hours,
+                    depending on road conditions and traffic.</p>
+
+                Villages dotting the highway provide a glimpse into rural Nepali life. Children wave at passing
+                vehicles, while farmers tend to their fields, showcasing a lifestyle deeply connected to nature. These
+                moments offer a grounding contrast to the urban chaos left behind in Kathmandu.</p>
+
+                <h4 class="text-2xl mt-4 font-bold mb-2">Arriving in Lumbini</h4>
+                <p>Traveling by bus from Kathmandu to Lumbini typically takes around 10 to 11 hours,
+                    covering approximately 330 kilometers. Buses generally depart from Kathmandu in the morning and
+                    evening,
+                    with arrival times in Lumbini around 5:00 PM to 6:00 PM for morning departures, and 5:00 AM to 6:00
+                    AM for evening departures.</p>
+                <h4 class="text-2xl mt-4 font-bold mb-2">Conclusion</h4>
+                <p>This journey is more than just a road trip; it’s a voyage through Nepal’s cultural and spiritual tapestry. From the winding highways of the hills to the serene plains of Lumbini, every moment offers something unique. Whether you seek spiritual solace, cultural insights, or simply the joy of exploring Nepal’s diverse landscapes, the trip from Kathmandu to Lumbini is bound to leave a lasting impression.
+
+                    Pack your bags, embrace the journey, and let the peaceful vibes of Lumbini guide you to a deeper connection with Nepal’s rich heritage and spirituality.
+                </p>
+                <p class="mt-2 mb-6"><b><i>So pack your bags, hit the road, and let the beauty of Nepal guide your
+                            way!</i></b></p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-16 pl-12">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Section -->
+                <div>
+                    <h4 class="text-lg font-medium mb-6 relative">
+                        Company
+                        <span class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"></span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="flex items-center space-x-2 hover:text-light-blue transition">
+                                <i class="fas fa-info-circle"></i>
+                                <span>About us</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-2 hover:text-light-blue transition">
+                                <i class="fas fa-blog"></i>
+                                <span>Blogs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-2 hover:text-light-blue transition">
+                                <i class="fas fa-envelope"></i>
+                                <span>Contact us</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Our Services Section -->
+                <div>
+                    <h4 class="text-lg font-medium mb-6 relative">
+                        Our Services
+                        <span class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"></span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="flex items-center space-x-2 hover:text-light-blue transition">
+                                <i class="fas fa-city"></i>
+                                <span>City to city</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-2 hover:text-light-blue transition">
+                                <i class="fas fa-bus"></i>
+                                <span>City rides</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-2 hover:text-light-blue transition">
+                                <i class="fas fa-sync"></i>
+                                <span>Returns</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-2 hover:text-light-blue transition">
+                                <i class="fas fa-wallet"></i>
+                                <span>Payment options</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Bookings Section -->
+                <div>
+                    <h4 class="text-lg font-medium mb-6 relative">
+                        Bookings
+                        <span class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"></span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="flex items-center space-x-2 hover:text-light-blue transition">
+                                <i class="fas fa-route"></i>
+                                <span>Watch routes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-2 hover:text-light-blue transition">
+                                <i class="fas fa-car"></i>
+                                <span>Vehicles</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-2 hover:text-light-blue transition">
+                                <i class="fas fa-truck"></i>
+                                <span>Carries</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Follow Us Section -->
+                <div>
+                    <h4 class="text-lg font-medium mb-6 relative">
+                        Follow Us
+                        <span class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"></span>
+                    </h4>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-center text-gray-300 mt-4">
+            &copy; 2024 TransitEase. All rights reserved.
+        </p>
+        <!-- <p>&copy; 2024 TransitEase. All rights reserved.</p> -->
+    </footer>
+</body>
+
+</html>
+<!-- Blog post with featured image -->

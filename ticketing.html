@@ -37,9 +37,9 @@
         <!-- Navigation -->
         <nav id="navbar" class="hidden sm:flex sm:space-x-8 flex-col sm:flex-row sm:items-center absolute sm:static top-16 sm:top-auto left-0 w-full sm:w-auto  sm:bg-transparent px-6 sm:px-0">
             <ul class="sm:flex sm:space-x-8 ">
-                <li><a href="#home" class="block py-2 sm:py-0 hover:underline">Home</a></li>
-                <li><a href="#routes" class="block py-2 sm:py-0 hover:underline">Routes</a></li>
-                <li><a href="#tickets" class="block py-2 sm:py-0 hover:underline">Tickets</a></li>
+                <li><a href="index.html" class="block py-2 sm:py-0 hover:underline">Home</a></li>
+                <li><a href="trips.html" class="block py-2 sm:py-0 hover:underline">Routes</a></li>
+                <li><a href="trips.html" class="block py-2 sm:py-0 hover:underline">Tickets</a></li>
                 <li><a href="#contact" class="block py-2 sm:py-0 hover:underline">Contact</a></li>
             </ul>
         </nav>
@@ -65,7 +65,7 @@
 
   <!-- Form Section -->
   <div id="form-section" class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Customer Details</h2>
+    <h2 class="text-2xl font-semibold text-gray-800 mb-`6">Customer Details</h2>
     <form id="customer-form" class="space-y-4">
       <!-- Name -->
       <div>
@@ -81,6 +81,18 @@
       <div>
         <label class="block text-gray-700 font-medium mb-2" for="mobile">Mobile</label>
         <input type="tel" id="mobile" placeholder="Enter your mobile" class="w-full px-4 py-2 border rounded-md" required />
+      </div>
+      <!-- Passengers -->
+      <div>
+        <label class="block font-medium mb-2" for="passengers">Number of Passengers</label>
+        <input
+          type="number"
+          id="passengers"
+          placeholder="Enter number of passengers"
+          min="1"
+          class="w-full px-4 py-2 border rounded-md"
+          required
+        />
       </div>
       <!-- Address -->
       <div>
@@ -114,8 +126,8 @@
 
   <!-- JavaScript -->
   <script>
-    // Handle Progress Bar and Sections
-    const progressBar = document.getElementById("progress-bar");
+        // Handle Progress Bar and Sections
+        const progressBar = document.getElementById("progress-bar");
     const formSection = document.getElementById("form-section");
     const finishSection = document.getElementById("finish-section");
     const goBackBtn = document.getElementById("go-back");
@@ -128,9 +140,10 @@
       const email = document.getElementById("email").value;
       const mobile = document.getElementById("mobile").value;
       const address = document.getElementById("address").value;
+      const passengers = document.getElementById("passengers").value;
 
       // Combine data into a string for QR code
-      const qrData = `Name: ${name}\nEmail: ${email}\nMobile: ${mobile}\nAddress: ${address}`;
+      const qrData = `Name: ${name}\nEmail: ${email}\nMobile: ${mobile}\nAddress: ${address}\nPassengers: ${passengers}`;
 
       // Generate QR Code
       const qrCodeContainer = document.getElementById("qrcode");
@@ -151,11 +164,9 @@
 
     // Go Back Button
     goBackBtn.addEventListener("click", function () {
-      window.location.href = "packages.html";
+      window.location.href = "index.html";
 
-      // Show Form Section and Hide Finish Section
-    //   finishSection.classList.add("hidden");
-    //   formSection.classList.remove("hidden");
+      
     });
   </script>
 </body>

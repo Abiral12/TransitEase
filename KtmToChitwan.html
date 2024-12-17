@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    
+
+</head>
+<header id="header" class="text-white py-4 bg-blue-900 w-full z-50 ">
+    <div class="flex items-center justify-between px-6">
+        <!-- Logo -->
+        <h1 class="text-2xl font-bold">TransitEase</h1>
+
+        <!-- Hamburger Icon (Visible on smaller screens) -->
+        <button id="menu-toggle" class="block sm:hidden text-white text-2xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav id="navbar" class="hidden sm:flex sm:space-x-8 flex-col sm:flex-row sm:items-center absolute sm:static top-16 sm:top-auto left-0 w-full sm:w-auto  sm:bg-transparent px-6 sm:px-0">
+            <ul class="sm:flex sm:space-x-8 ">
+                <li><a href="#home" class="block py-2 sm:py-0 hover:underline">Home</a></li>
+                <li><a href="#routes" class="block py-2 sm:py-0 hover:underline">Routes</a></li>
+                <li><a href="#tickets" class="block py-2 sm:py-0 hover:underline">Tickets</a></li>
+                <li><a href="#contact" class="block py-2 sm:py-0 hover:underline">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- User Actions -->
+        <div id="user-actions" class="hidden sm:flex space-x-8 list-none">
+          <li><a href="login.html" class="hover:underline">Login</a></li>
+          <li><a href="signup.html" class="hover:underline">Sign Up</a></li>
+      </div> 
+    </div>
+</header>
+<body>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto">
+            <!-- Blog post header -->
+            <div class="py-8">
+                <h1 class="text-3xl font-bold mb-2"><i>Journey from Kathmandu to Chitwan</i></h1>
+                <p class="text-gray-500 text-sm">Published on <time datetime="2022-04-05">August 28, 2005</time></p>
+            </div>
+    
+            <!-- Featured image -->
+            <img src="images/chitwan.jpg"Featured image" class="w-full h-auto mb-8">
+    
+            <!-- Blog post content -->
+            <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto">
+                <p>Nepal is a country of diverse landscapes, and the journey from Kathmandu to Chitwan is a prime example of this variety. Spanning approximately 160 kilometers, this trip takes you from the bustling cityscape of Kathmandu to the tranquil jungles of Chitwan,
+                   home to the famed Chitwan National Park. Here’s a look at what makes this journey so exciting and memorable.</p>
+                <h6 class="text-2xl mt-4 font-bold mb-2">Starting Point: Kathmandu</h6>
+
+                <p>The trip begins in Kathmandu, Nepal’s vibrant capital known for its rich history and cultural landmarks. As you leave behind the chaos of city traffic, the road opens
+                   up to lush hills and winding pathways. Early departures are recommended to avoid congestion and make the most of the day.</p>
+
+                    The road trip starts early, as most buses leave from Kalanki, a major transportation hub. If you're driving yourself, make sure to prepare for winding roads and stunning views.</p>
+                <h4 class="text-2xl mt-4 font-bold mb-2">The Scenic Highway Journey</h4>
+                <p>.The journey follows the Prithvi Highway, a scenic route that parallels the Trishuli River for much of the way. The river’s calm flow and occasional rapids provide a soothing backdrop, making it a favorite among nature lovers.</p>
+                <h4 class="text-1xl mt-4 font-bold mb-2">Key Highlights Along the Way</h4>
+                <li class="mt-3"><b>Naubise to Mugling:</b></li>
+                <p>After leaving the Kathmandu Valley, the journey descends through lush hillsides and winding roads. 
+                    The Trishuli River runs parallel to the highway, adding to the scenic charm. You’ll pass through small towns like Naubise and 
+                    Malekhu, famous for their fresh fish dishes—definitely worth a roadside stop!</p>
+                <li class="mt-3"><b>Mugling:</b></li>
+                <p>Mugling is a bustling crossroads town where travelers often stop for refreshments. It’s also 
+                    where you can witness the confluence of the Trishuli and Marsyangdi Rivers.</p>
+                <li class="mt-3"><b>Chitwan Region:</b></li>
+                <p>As you continue toward Narayanghat, the landscape flattens, and the climate gets warmer. This is the gateway to Chitwan National Park,
+                     a world-renowned wildlife reserve.</p>
+                <li class="mt-3"><b>The Final Stretch to Chitwan:</b></li>
+                <p>From Narayanghat, the highway continues toward chitwan via the <b>East-West Highway</b>. The road is straighter and more relaxed, 
+                    flanked by dense forests and small towns.</p>
+                <h4 class="text-2xl mt-4 font-bold mb-2">Arriving in Chitwan</h4>
+                <p>After 5 to 7 hours of driving, the subtropical flatlands of Chitwan unfold before you. The town of Sauraha, a popular entry point to Chitwan National Park, 
+                  welcomes visitors with its laid-back charm and lush surroundings.</p>
+                <h4 class="text-2xl mt-4 font-bold mb-2">Conclusion</h4>
+                <p>The journey from Kathmandu to Chitwan is more than just a transition from city to jungle; it’s an exploration of Nepal’s diverse geography and culture. From the winding highways alongside the Trishuli River to the wildlife-rich plains of Chitwan, this road trip is a microcosm of the country’s unparalleled beauty.
+
+Whether you’re seeking adventure, relaxation, or cultural immersion, Chitwan promises an unforgettable experience. So, hit the road and let Nepal’s wilderness captivate you!
+                </p>
+                <p class="mt-2 mb-6"><b><i>So pack your bags, hit the road, and let the beauty of Nepal guide your way!</i></b></p>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-16 pl-12">
+        <div class="container mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Company Section -->
+            <div>
+              <h4 class="text-lg font-medium mb-6 relative">
+                Company
+                <span
+                  class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+                ></span>
+              </h4>
+              <ul class="space-y-3">
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-info-circle"></i>
+                    <span>About us</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-blog"></i>
+                    <span>Blogs</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact us</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+  
+            <!-- Our Services Section -->
+            <div>
+              <h4 class="text-lg font-medium mb-6 relative">
+                Our Services
+                <span
+                  class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+                ></span>
+              </h4>
+              <ul class="space-y-3">
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-city"></i>
+                    <span>City to city</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-bus"></i>
+                    <span>City rides</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-sync"></i>
+                    <span>Returns</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-wallet"></i>
+                    <span>Payment options</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+  
+            <!-- Bookings Section -->
+            <div>
+              <h4 class="text-lg font-medium mb-6 relative">
+                Bookings
+                <span
+                  class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+                ></span>
+              </h4>
+              <ul class="space-y-3">
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-route"></i>
+                    <span>Watch routes</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-car"></i>
+                    <span>Vehicles</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 hover:text-light-blue transition"
+                  >
+                    <i class="fas fa-truck"></i>
+                    <span>Carries</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+  
+            <!-- Follow Us Section -->
+            <div>
+              <h4 class="text-lg font-medium mb-6 relative">
+                Follow Us
+                <span
+                  class="absolute left-0 bottom-0 h-1 w-12 bg-light-blue block"
+                ></span>
+              </h4>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-light-blue transition"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-gray-300 mt-4">
+          &copy; 2024 TransitEase. All rights reserved.
+        </p>
+        <!-- <p>&copy; 2024 TransitEase. All rights reserved.</p> -->
+      </footer>
+</body>
+</html>
+<!-- Blog post with featured image -->

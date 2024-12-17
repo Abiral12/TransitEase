@@ -171,31 +171,6 @@
   </footer>
 
   <!-- JavaScript -->
-  <script>
-    // Toggle Navigation Menu
-    const menuToggle = document.getElementById("menu-toggle");
-    const navbar = document.getElementById("navbar");
-
-    menuToggle.addEventListener("click", () => {
-      navbar.classList.toggle("hidden");
-    });
-
-    document.getElementById('find-route').addEventListener('click', function () {
-    const start = document.getElementById('start').value;
-    const end = document.getElementById('end').value;
-
-    if (!start || !end) {
-    alert('Please enter both start and end locations.');
-    return;
-  }
-
-  // Clear any existing map instance
-  if (map) {
-    map.remove();
-  }
-
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="script.js"></script>
 </body>
 </html>
