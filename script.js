@@ -167,20 +167,51 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
   
     // Header Animation
-    gsap.from("header", { duration: 1, y: -50, opacity: 0, ease: "power1.out" });
-  
-    // Section Slide-in Animation
-    gsap.from("section", {
-      scrollTrigger: {
-        trigger: "section",
-        start: "top 80%",
-      },
-      duration: 1,
-      y: 50,
+    gsap.from("header", { duration: 1, delay: 1, y: -50, opacity: 0, ease: "power1.out" });
+
+    // Welcome Text Animation
+    gsap.from("#banner-text", {
+      duration: 1.5,
+      x: 100,
       opacity: 0,
-      stagger: 0.2,
       ease: "power1.out",
+      delay: 1,
     });
+
+    gsap.from("#banner-text + p", {
+      duration: 1.5,
+      x: -100,
+      opacity: 0,
+      ease: "power1.out",
+      delay: 1.5,
+    });
+
+    gsap.from("#welcome-img", 
+      { scale: 0, opacity: 0 , duration: 1,}, // Starting state
+      { scale: 1, opacity: 1, duration: 1, ease: "sine.inOut" } // Animation properties
+    );
+
+  
+    // // Section Slide-in Animation
+    // gsap.from("#services", {
+    //   transform: "translateX(-200%)",
+    //   scrollTrigger: {
+    //     trigger: "#services",
+    //     scroller: "body",
+    //     start: "top 20%",
+    //     end: "top -100%",
+    //     scrub: 2,
+    //     pin: true,
+    //     markers: true
+    //   },
+    //   // duration: 1,
+    //   // y: 50,
+    //   // opacity: 0,
+    //   // stagger: 0.2,
+    //   // ease: "power1.out",
+    // });
+
+
   
     // Button Hover Animation
     gsap.utils.toArray("button").forEach((button) => {
@@ -192,22 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   
-    // Welcome Text Animation
-    gsap.from("#banner-text", {
-      duration: 1.5,
-      y: 100,
-      opacity: 0,
-      ease: "bounce.out",
-      delay: 0.5,
-    });
-  
-    gsap.from("#banner-text + p", {
-      duration: 1.5,
-      y: 100,
-      opacity: 0,
-      ease: "power1.out",
-      delay: 1,
-    });
+
   
     // Map Zoom Animation
     gsap.from("#map", {

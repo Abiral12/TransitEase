@@ -7,15 +7,9 @@
     <!-- Leaflet CSS for map styling -->
     <link
       rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    />
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- GSAP Library -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-      defer
-    ></script>
    
     <!-- Leaflet.js for maps -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -27,11 +21,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
-    <!-- Custom JS -->
-    <script src="script.js" defer></script>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="bg-gray-100 text-gray-800">
     <link rel="stylesheet" href="style.css">
     
   <header class="text-white py-4 fixed w-full z-50 ">
@@ -60,9 +49,7 @@
           <li><a href="signup.html" class="hover:underline">Sign Up</a></li>
       </div> 
     </div>
-</header>
-
-   
+</header> 
         <!-- Welcome Section -->
         <section id="home" class="h-screen flex justify-center items-center relative">
             <!-- Image -->
@@ -71,10 +58,11 @@
             
             <!-- Text Content -->
             <div class="z-10 text-center">
-                <h1 id="banner-text" class="text-6xl font-bold mb-4 text-white" >Welcome to TransitEase</h1> 
+                <h1 id="banner-text" class="text-6xl font-semibold mb-4 text-white" >Welcome to <b>TransitEase</b></h1> 
                 <p class="text-2xl mt-4 text-white">Your Smart Commute Solution</p>        
             </div>
         </section>
+
 
        <!-- Services Section -->
   <!-- Services Section -->
@@ -108,6 +96,33 @@
 
       
       <div class="line bg-gray-500" style="height: 3px; width: 100%;"></div>
+        <!-- Services Section -->
+        <section id="services" class="mb-8 bg-white p-6 rounded-lg shadow-md">
+          <h2 class="text-2xl text-blue-700 text-center font-semibold">Our Services</h2>
+          <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Service 1 -->
+              <div class="p-4 bg-gray-100 rounded-lg text-center">
+                  <i class="fas fa-bus text-blue-700 text-4xl mb-2"></i>
+                  <h3 class="text-lg font-semibold text-blue-700">City to City Rides</h3>
+                  <p class="text-gray-600">Comfortable and affordable rides between major cities.</p>
+              </div>
+              <!-- Service 2 -->
+              <div class="p-4 bg-gray-100 rounded-lg text-center">
+                  <i class="fas fa-leaf text-blue-700 text-4xl mb-2"></i>
+                  <h3 class="text-lg font-semibold text-blue-700">Eco-Friendly Travel</h3>
+                  <p class="text-gray-600">Join us in reducing carbon emissions with sustainable transport options.</p>
+              </div>
+              <!-- Service 3 -->
+              <div class="p-4 bg-gray-100 rounded-lg text-center">
+                  <i class="fas fa-clock text-blue-700 text-4xl mb-2"></i>
+                  <h3 class="text-lg font-semibold text-blue-700">Timely Departures</h3>
+                  <p class="text-gray-600">Experience punctual and reliable transportation services.</p>
+              </div>
+          </div>
+      </section>
+    
+      
+        
 
       <!-- Ticket Booking Section Wrapper -->
 <div class="flex items-center justify-center h-screen bg-gray-100 py-16 bg-gradient-to-r from-gray-800 via-gray-900 to-blue-900">
@@ -452,4 +467,6 @@
       <!-- <p>&copy; 2024 TransitEase. All rights reserved.</p> -->
     </footer>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
 </html>
