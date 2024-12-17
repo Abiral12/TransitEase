@@ -24,52 +24,94 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-  <header id="header" class="text-white py-4 fixed w-full z-50 ">
-    <div class="flex items-center justify-between px-6">
-        <!-- Logo -->
-        <h1 class="text-2xl font-bold">TransitEase</h1>
-
-        <!-- Hamburger Icon (Visible on smaller screens) -->
-        <button id="menu-toggle" class="block sm:hidden text-white text-2xl focus:outline-none">
-            <i class="fas fa-bars"></i>
-        </button>
-
-        <!-- Navigation -->
-        <nav id="navbar" class="hidden sm:flex sm:space-x-8 flex-col sm:flex-row sm:items-center absolute sm:static top-16 sm:top-auto left-0 w-full sm:w-auto  sm:bg-transparent px-6 sm:px-0">
-            <ul class="sm:flex sm:space-x-8 ">
-                <li><a href="#home" class="block py-2 sm:py-0 hover:underline">Home</a></li>
-                <li><a href="#routes" class="block py-2 sm:py-0 hover:underline">Routes</a></li>
-                <li><a href="#tickets" class="block py-2 sm:py-0 hover:underline">Tickets</a></li>
-                <li><a href="#contact" class="block py-2 sm:py-0 hover:underline">Contact</a></li>
-            </ul>
-        </nav>
-
-        <!-- User Actions -->
-        <div class="flex space-x-4">
-          <a href="login.html"><button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"><i class="fas fa-sign-in-alt mr-2"></i>Log In</button></a>
-          <a href="signup.html"><button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300"><i class="fas fa-user-plus mr-2"></i>Sign Up</button></a>
-        </div>
-    </div>
-</header> 
-        <!-- Welcome Section -->
-        <section id="home" class="h-screen flex justify-center items-center relative">
-            <!-- Image -->
-            <img src="/images/img1.jpg" alt="image" id="welcome-img" class="absolute left-0 w-full h-full object-cover z-0">
-
-            
-            <!-- Text Content -->
-            <div class="z-10 text-center">
-                <h1 id="banner-text" class="text-6xl font-semibold mb-4 text-white" >Welcome to <b>TransitEase</b></h1> 
-                <p class="text-2xl mt-4 text-white">Your Smart Commute Solution</p>        
-            </div>
-        </section>
+    <header id="header" class="text-white py-4 fixed w-full z-50 ">
+      <div class="flex items-center justify-between px-6">
+          <!-- Logo -->
+          <h1 class="text-2xl font-bold">TransitEase</h1>
+  
+          <!-- Hamburger Icon (Visible on smaller screens) -->
+          <button id="menu-toggle" class="block sm:hidden text-white text-2xl focus:outline-none">
+              <i class="fas fa-bars"></i>
+          </button>
+  
+          <!-- Navigation -->
+          <nav id="navbar" class="hidden sm:flex sm:space-x-8 flex-col sm:flex-row sm:items-center absolute sm:static top-16 sm:top-auto left-0 w-full sm:w-auto sm:bg-transparent px-6 sm:px-0">
+              <ul class="sm:flex sm:space-x-8">
+                  <li><a href="#home" class="block py-2 sm:py-0 hover:underline">Home</a></li>
+                  <li><a href="#routes" class="block py-2 sm:py-0 hover:underline">Routes</a></li>
+                  <li><a href="#tickets" class="block py-2 sm:py-0 hover:underline">Tickets</a></li>
+                  <li><a href="#contact" class="block py-2 sm:py-0 hover:underline">Contact</a></li>
+              </ul>
+          </nav>
+  
+          <!-- User Actions -->
+          <div class="flex space-x-4">
+              <a href="login.html"><button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"><i class="fas fa-sign-in-alt mr-2"></i>Log In</button></a>
+              <a href="signup.html"><button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300"><i class="fas fa-user-plus mr-2"></i>Sign Up</button></a>
+          </div>
+      </div>
+  </header>
+  
+  <!-- Welcome Section -->
+  <section id="home" class="h-screen flex justify-center items-center relative">
+      <!-- Image -->
+      <img src="./images/img1.jpg" alt="image" id="welcome-img" class="absolute left-0 w-full h-full object-cover z-0">
+  
+      <!-- Text Content -->
+      <div class="z-10 text-center">
+          <h1 id="banner-text" class="text-6xl font-semibold mb-4 text-white">Welcome to <b>TransitEase</b></h1>
+          <p class="text-2xl mt-2 mb-6 text-white">Your Smart Commute Solution</p>
+  
+          <!-- Search Bar -->
+          <div class="search-container" id="search-bar">
+              <form class="search-bar flex justify-center items-center gap-4 bg-transparent backdrop-blur-md" id="searchForm">
+                  <!-- Starting Point Dropdown -->
+                  <div class="input-group">
+                      <i class="fas fa-bus icon"></i>
+                      <select id="startLocation" required>
+                          <option value="" disabled selected>From</option>
+                          <option value="New York">New York</option>
+                          <option value="Los Angeles">Los Angeles</option>
+                          <option value="Chicago">Chicago</option>
+                          <option value="Houston">Houston</option>
+                          <option value="San Francisco">San Francisco</option>
+                      </select>
+                  </div>
+                  
+                  <!-- Destination Dropdown -->
+                  <div class="input-group">
+                      <i class="fas fa-location-dot icon"></i>
+                      <select id="destination" required>
+                          <option value="" disabled selected>To</option>
+                          <option value="Las Vegas">Las Vegas</option>
+                          <option value="Orlando">Orlando</option>
+                          <option value="Seattle">Seattle</option>
+                          <option value="Miami">Miami</option>
+                          <option value="Boston">Boston</option>
+                      </select>
+                  </div>
+  
+                  <!-- Date Picker -->
+                  <div class="input-group">
+                      <input type="date" required class="p-2 rounded-md border border-gray-300">
+                  </div>
+  
+                  <!-- Search Button -->
+                  <button type="submit" class="search-btn bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">
+                      Search
+                  </button>
+              </form>
+          </div>
+      </div>
+  </section>
+  
 
 
 <!-- Services Section -->
 <section id="services" class="py-16 bg-gradient-to-r from-gray-800 via-gray-900 to-blue-900 text-white">
   <div class="container mx-auto px-6">
     <h2 class="text-4xl font-bold text-center mb-10 text-white">Our Services</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 align-center ms-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 
       <!-- Service Card 1: Tour Package -->
       <div class="p-6 bg-white rounded-lg shadow-lg transform hover:scale-105 transition-transform">
@@ -107,6 +149,25 @@
         </div>
       </div>
 
+
+            <!-- Service Card 3: Find Shortest Route -->
+      <div class="p-6 bg-white rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+        <div class="h-32 bg-gradient-to-r from-blue-700 to-purple-500 rounded-t-lg flex items-center justify-center">
+          <i class="fas fa-map text-6xl text-white"></i>
+        </div>
+        <div class="p-4">
+          <h3 class="text-2xl font-semibold text-center text-gray-800 mb-4">Find Shortest Route</h3>
+          <ul class="text-gray-700 space-y-2 text-center">
+            <li><i class="fas fa-arrows-alt text-purple-500 mr-2"></i>Quick Navigation</li>
+            <li><i class="fas fa-route text-purple-500 mr-2"></i>Optimal Routes</li>
+            <li><i class="fas fa-stopwatch text-purple-500 mr-2"></i>Save Time</li>
+          </ul>
+          <div class="mt-4 flex justify-center">
+            <a href="route.html" class="bg-purple-500 hover:bg-purple-600 text-white py-2 px-6 rounded">Find Route</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -116,7 +177,7 @@
 
 
       <!-- Find Routes Section -->
-      <section id="routes" class="mb-8 bg-white p-6  shadow-md py-16 bg-gradient-to-r from-gray-800 via-gray-900 to-blue-900">
+      <!-- <section id="routes" class="mb-8 bg-white p-6  shadow-md py-16 bg-gradient-to-r from-gray-800 via-gray-900 to-blue-900">
         <h2 class="text-2xl text-blue-700 text-center font-semibold">
           Find Your Route
         </h2>
@@ -144,14 +205,14 @@
             Find Route
           </button>
         </form>
-        <!-- <div
+        <div
           id="route-results"
           class="mt-4 bg-gray-100 p-4 rounded-lg shadow-inner"
         >
           Route results will be displayed here.
-        </div> -->
+        </div>
         <div id="map" class="mt-4"></div>
-      </section>
+      </section> -->
 
       <!-- Contact Section -->
       <section id="contact" class="mb-8 bg-white p-6 rounded-lg shadow-md">

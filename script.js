@@ -261,5 +261,18 @@ window.addEventListener('scroll', function() {
       header.classList.remove('scrolled');  // Remove the 'scrolled' class when back to top
     }
   });
-  
-  
+
+// Day Selection Logic
+const days = document.querySelectorAll('.day');
+
+days.forEach(day => {
+    day.addEventListener('click', () => {
+        // Remove active class from all days
+        days.forEach(d => d.classList.remove('active'));
+        // Add active class to the clicked day
+        day.classList.add('active');
+    });
+});
+
+
+

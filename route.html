@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TransitEase - Find Your Route</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+      <!-- Leaflet CSS for map styling -->
+      <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+   
+    <!-- Leaflet.js for maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100">
+
+  <!-- Header -->
+  <header id="header" class="text-white py-4 bg-blue-900 shadow-md sticky top-0 w-full z-50">
+    <div class="flex items-center justify-between px-6">
+      <!-- Logo -->
+      <h1 class="text-2xl font-bold">TransitEase</h1>
+
+      <!-- Hamburger Icon (Visible on smaller screens) -->
+      <button id="menu-toggle" class="block sm:hidden text-white text-2xl focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Navigation -->
+      <nav
+        id="navbar"
+        class="hidden sm:flex sm:space-x-8 flex-col sm:flex-row sm:items-center absolute sm:static top-16 sm:top-auto left-0 w-full sm:w-auto bg-blue-900 sm:bg-transparent px-6 sm:px-0"
+      >
+        <ul class="sm:flex sm:space-x-8">
+          <li><a href="index.html" class="block py-2 sm:py-0 hover:underline">Home</a></li>
+          <li><a href="#routes" class="block py-2 sm:py-0 hover:underline">Routes</a></li>
+          <li><a href="#tickets" class="block py-2 sm:py-0 hover:underline">Tickets</a></li>
+          <li><a href="footer" class="block py-2 sm:py-0 hover:underline">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- User Actions -->
+      <div class="flex space-x-4">
+        <a href="login.html">
+          <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">
+            <i class="fas fa-sign-in-alt mr-2"></i>Log In
+          </button>
+        </a>
+        <a href="signup.html">
+          <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">
+            <i class="fas fa-user-plus mr-2"></i>Sign Up
+          </button>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Find Routes Section -->
+    <section
+      id="routes"
+      class=" bg-white p-6 shadow-md py-16 bg-gradient-to-r from-gray-800 via-gray-900 to-blue-900 text-white"
+    >
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl text-blue-400 text-center font-semibold mb-8">
+          Find Your Route
+        </h2>
+        <form id="route-form" class="mt-4 space-y-4 max-w-md mx-auto mb-6">
+          <input
+            type="text"
+            id="start"
+            placeholder="Start Location"
+            value="Mid Valley International College"
+            class="w-full px-4 py-2 text-gray-800 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            required
+          />
+          <input
+            type="text"
+            id="end"
+            placeholder="End Location"
+            class="w-full px-4 py-2 text-gray-800 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            required
+          />
+        <button
+            type="button"
+            id="find-route"
+            class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded flex items-center justify-center mx-auto"
+        >
+            Find Route
+        </button>
+        <div
+        id="route-results"
+        class="mt-4 bg-gray-100 p-4 rounded-lg shadow-inner text-gray-800">
+        Route results will be displayed here.
+        </div>
+        </form>
+        <div id="map" class="mx-auto max-w-md h-64 bg-gray-200 rounded-lg"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white py-16">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Company Section -->
+        <div>
+          <h4 class="text-lg font-medium mb-6">Company</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="hover:text-blue-400"><i class="fas fa-info-circle mr-2"></i>About Us</a></li>
+            <li><a href="#" class="hover:text-blue-400"><i class="fas fa-blog mr-2"></i>Blogs</a></li>
+            <li><a href="#" class="hover:text-blue-400"><i class="fas fa-envelope mr-2"></i>Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Our Services Section -->
+        <div>
+          <h4 class="text-lg font-medium mb-6">Our Services</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="hover:text-blue-400"><i class="fas fa-city mr-2"></i>City to City</a></li>
+            <li><a href="#" class="hover:text-blue-400"><i class="fas fa-bus mr-2"></i>City Rides</a></li>
+            <li><a href="#" class="hover:text-blue-400"><i class="fas fa-sync mr-2"></i>Returns</a></li>
+            <li><a href="#" class="hover:text-blue-400"><i class="fas fa-wallet mr-2"></i>Payment Options</a></li>
+          </ul>
+        </div>
+
+        <!-- Bookings Section -->
+        <div>
+          <h4 class="text-lg font-medium mb-6">Bookings</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="hover:text-blue-400"><i class="fas fa-route mr-2"></i>Watch Routes</a></li>
+            <li><a href="#" class="hover:text-blue-400"><i class="fas fa-car mr-2"></i>Vehicles</a></li>
+            <li><a href="#" class="hover:text-blue-400"><i class="fas fa-truck mr-2"></i>Carries</a></li>
+          </ul>
+        </div>
+
+        <!-- Follow Us Section -->
+        <div>
+          <h4 class="text-lg font-medium mb-6">Follow Us</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 hover:bg-blue-400 transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 hover:bg-blue-400 transition">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 hover:bg-blue-400 transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 hover:bg-blue-400 transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="text-center text-gray-400 mt-8">&copy; 2024 TransitEase. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Toggle Navigation Menu
+    const menuToggle = document.getElementById("menu-toggle");
+    const navbar = document.getElementById("navbar");
+
+    menuToggle.addEventListener("click", () => {
+      navbar.classList.toggle("hidden");
+    });
+
+    document.getElementById('find-route').addEventListener('click', function () {
+    const start = document.getElementById('start').value;
+    const end = document.getElementById('end').value;
+
+    if (!start || !end) {
+    alert('Please enter both start and end locations.');
+    return;
+  }
+
+  // Clear any existing map instance
+  if (map) {
+    map.remove();
+  }
+
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
