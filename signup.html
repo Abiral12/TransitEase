@@ -7,60 +7,98 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex justify-center items-center min-h-screen">
-    <div class="relative w-full h-screen flex">
-        <!-- Background Image Section -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-80" style="background-image: url('logins.jpg');"></div> 
-        
-        <!-- Form Card -->
-        <div class="relative z-10 bg-white rounded-lg shadow-lg p-8 w-full max-w-md mx-auto">
-            <h2 class="text-2xl font-bold mb-4 text-gray-800">Sign up</h2>
-            <p class="text-gray-600 mb-6">Enter your details below to create your account and get started.</p>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen bg-cover bg-center" style="background-image: url('./images/logins.jpg');">
 
-            <form class="space-y-4">
-                <input 
-                    type="text" 
-                    placeholder="Full Name" 
-                    required 
-                    class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                <input 
-                    type="email" 
-                    placeholder="Email" 
-                    required 
-                    class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                <input 
-                    type="tel" 
-                    placeholder="Phone Number" 
-                    required 
-                    class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                <select 
-                    class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    <option value="nepal" selected>Nepal</option>
-                </select>
-                <input 
-                    type="password" 
-                    placeholder="Password" 
-                    required 
-                    class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                <input 
-                    type="password" 
-                    placeholder="Confirm Password" 
-                    required 
-                    class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                
-                <div class="flex gap-4">
+    <!-- Container -->
+    <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
+        <div class="bg-blue-900 bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-md text-white">
+            <!-- Header -->
+            <h2 class="text-3xl font-bold text-center mb-3">Sign Up</h2>
+            <p class="text-center mb-6">Create an account to start booking your journey with TransitEase.</p>
+
+            <!-- Form -->
+            <form>
+                <!-- Full Name -->
+                <div class="mb-4">
+                    <input 
+                        type="text" 
+                        placeholder="Full Name" 
+                        required 
+                        class="w-full p-3 rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500 required"
+                    >
+                </div>
+                <!-- Email -->
+                <div class="mb-4">
+                    <input 
+                        type="email" 
+                        placeholder="Email" 
+                        required 
+                        class="w-full p-3 rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500 required"
+                    >
+                </div>
+                <!-- Phone -->
+                <div class="mb-4">
+                    <input 
+                        type="tel" 
+                        placeholder="Phone Number" 
+                        required 
+                        class="w-full p-3 rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500 required"
+                    >
+                </div>
+                <!-- Country -->
+                <div class="mb-4">
+                    <select 
+                        required 
+                        class="w-full p-3 rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500 required">
+                        <option value="nepal" selected>Nepal</option>
+                    </select>
+                </div>
+                <!-- Password -->
+                <div class="mb-4">
+                    <input 
+                        type="password" 
+                        placeholder="Password" 
+                        required 
+                        class="w-full p-3 rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500 required"
+                    >
+                </div>
+                <!-- Confirm Password -->
+                <div class="mb-4">
+                    <input 
+                        type="password" 
+                        placeholder="Confirm Password" 
+                        required 
+                        class="w-full p-3 rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500 required"
+                    >
+                </div>
+                <!-- Confirm Button -->
+                <div class="flex justify-center mb-6">
                     <button 
-                        type="button" 
-                        class="w-full py-3 text-white bg-blue-500 border border-gray-300 rounded-md hover:bg-blue-600">
+                        type="submit" 
+                        class="w-1/2 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold py-3 rounded-lg shadow-md hover:from-blue-600 hover:to-blue-800 transform hover:scale-105 transition duration-300">
                         Confirm
                     </button>
-                    
                 </div>
-
-                <p class="text-center text-sm text-gray-600 mt-4">
-                    Already have an account? <a href="login.html" class="text-indigo-600 hover:underline">Login</a>
+                <!-- Redirect to Login -->
+                <p class="text-center text-sm">
+                    Already have an account? 
+                    <a href="login.html" class="text-yellow-300 hover:underline">Login</a>
                 </p>
             </form>
         </div>
     </div>
+</body>
+
+</html>
+
 </body>
 </html>

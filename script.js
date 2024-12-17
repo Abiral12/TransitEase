@@ -1,11 +1,9 @@
-const menuToggle = document.getElementById('menu-toggle');
-    const navbar = document.getElementById('navbar');
-    const userActions = document.getElementById('user-actions');
+const toggleButton = document.getElementById('menu-toggle');
+const navbar = document.getElementById('navbar');
 
-    menuToggle.addEventListener('click', () => {
-        navbar.classList.toggle('hidden');
-        userActions.classList.toggle('hidden');
-    });
+toggleButton.addEventListener('click', () => {
+    navbar.classList.toggle('hidden');
+});
 
 
     
